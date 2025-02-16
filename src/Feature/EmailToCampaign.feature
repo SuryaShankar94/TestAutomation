@@ -2,7 +2,7 @@ Feature: Partner
   Background:
     Given User launches UI Application URL
     When User enters valid username and valid password
-    Then Should display application home page
+    Then Should display xamplify application home page
   @Test_EmailToCamp001
   Scenario: Email Campaign Creation
     When Verify user is able to mouserHover on Campaign
