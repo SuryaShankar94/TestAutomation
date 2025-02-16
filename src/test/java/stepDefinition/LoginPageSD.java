@@ -10,7 +10,7 @@ import utility.UserActions;
 
 public class LoginPageSD extends TestSetup {
 
-    @Given("User launches UI Application URL")
+    @Given("User launches xamplify Application URL")
     public void userLaunchesApplicationURL()
     {
        try {
@@ -27,7 +27,7 @@ public class LoginPageSD extends TestSetup {
         password = userInputProperties.getProperty("password");
         LoginPage.enterUserNameAndPassword(userName,password);
     }
-    @Then("Should display application home page")
+    @Then("Should display xamplify application home page")
     public void assertVerifyHomepage()
     {
 

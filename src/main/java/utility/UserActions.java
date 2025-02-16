@@ -15,7 +15,6 @@ import java.util.List;
 public class UserActions extends TestSetup {
  public static String destDirectory = userInputProperties.getProperty("destDirectoryDownload");
  public static long l = Long.parseLong(configProperties.getProperty("ExplicitWait"));
- //public void String eMailCapmLocat =
  public static WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(l));
 
 
@@ -38,7 +37,6 @@ public class UserActions extends TestSetup {
             wait.until(ExpectedConditions.elementToBeClickable(locator));
             driver.findElement(locator).click();
         }catch (TimeoutException t){
-            //System.out.println("Exception 123");
             wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
             driver.findElement(locator).click();
         }
@@ -179,16 +177,19 @@ public class UserActions extends TestSetup {
     {
         Actions builder = new Actions(driver);
         //highLighterMethod(driver,locator);
-        //System.out.println("CURRENT URL::::>"+driver.getCurrentUrl());
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         WebElement hoverElement = driver.findElement(locator);
         builder.moveToElement(hoverElement).perform();
     }
-    public static void getDropDownSelectValue(By locator, int index) {
-       // wait_Sec();
+    public static void getDropDownSelectValue(By locator, String value) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         Select dropdown = new Select(driver.findElement(locator));
-        System.out.println("DROPDOWN>>>>>>>>");
+        dropdown.selectByValue(value);
+    }
+
+    public static void getDropDownSelectIndex(By locator, int index) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        Select dropdown = new Select(driver.findElement(locator));
         dropdown.selectByIndex(index);
     }
 
@@ -198,7 +199,14 @@ public class UserActions extends TestSetup {
     }
 
 
-
-
+    public static void waitForElementVisible(By locator) {
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            //return true;
+        }catch (Exception e){
+            System.out.println(e);
+            //return false;
+        }
+    }
 
 }

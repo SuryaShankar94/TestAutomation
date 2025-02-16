@@ -15,8 +15,9 @@ import org.junit.runner.RunWith;
         plugin = {"html:target/Latest_Result_Report/Application_UI.html","pretty",
         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         dryRun = false,
-        //tags = "@Test_OpportunitiesManageLeads"
-        tags="@Test_OpportunitiesLeadsActions"
+        tags = "@Test_OpportunitiesManageLeads"
+        //tags="@Test_OpportunitiesLeadsActions"
+
        // tags = "@Test_EmailToCamp001"
 )
 

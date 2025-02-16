@@ -104,7 +104,7 @@ public class TestBase extends TestSetup{
             }
         }
     }
-    @BeforeAll(order = 6)
+   /* @BeforeAll(order = 6)
     public static void loadOpportunitiesProperties()
     {
         OpportunitiesProperties = new Properties();
@@ -123,7 +123,7 @@ public class TestBase extends TestSetup{
             }
         }
     }
-
+*/
     public String getCurrentDateAndTime()
     {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd//MM//yyyy HH:mm:ss");
