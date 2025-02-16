@@ -94,4 +94,30 @@ public class OpportunitiesSD extends TestSetup
     public void userIsAbleToClickPageDropDown() {
         OpportunitiesPage.clickPageDropDown();
     }
+
+
+    @And("User is able to click lead to deal register button")
+    public void userIsAbleToClickLeadToDealRegisterButton() {
+        OpportunitiesPage.clickLeadToDealRegisterButton();
+    }
+
+    @Then("User is able to mouseHover on Manage Deals")
+    public void userIsAbleToMouseHoverOnManageDeals() {
+        OpportunitiesPage.clickmouseHoverOnManageDeals();
+    }
+
+    @And("User wants to click on the add Deal button")
+    public void userWantsToClickOnTheAddDealButton() {
+        OpportunitiesPage.clickAddaDealButton();
+    }
+
+    @And("User is able to select company pipeline and stages")
+    public void userIsAbleToSelectCompanyPipelineAndStages() {
+        OpportunitiesPage.selectCompanyPipelineAndStages();
+    }
+
+    @And("User is able to fill the add deal details")
+    public void userIsAbleToFillTheAddDealDetails() {
+        OpportunitiesPage.fillDealDetails();
+    }
 }
