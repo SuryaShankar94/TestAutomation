@@ -85,9 +85,9 @@ public class OpportunitiesSD extends TestSetup
         OpportunitiesPage.clickDeleteLeadIcon();
     }
 
-    @And("User is able to click next last first and previous page lead icon")
-    public void userIsAbleToClickNextLastFirstAndPreviousPageLeadIcon() {
-        OpportunitiesPage.pageNavigations();
+    @And("User is able to click manage leads pagination")
+    public void userIsAbleToClickManageLeadsPagination(){
+        OpportunitiesPage.manageLeadsPagination();
     }
 
     @And("User is able to click page drop down")
@@ -116,8 +116,73 @@ public class OpportunitiesSD extends TestSetup
         OpportunitiesPage.selectCompanyPipelineAndStages();
     }
 
+    @And("User is able to add lead or contact to deal")
+    public void userIsAbleToAddLeadOrContactToDeal() {
+        OpportunitiesPage.addLeadOrContactToDeal();
+    }
+
     @And("User is able to fill the add deal details")
     public void userIsAbleToFillTheAddDealDetails() {
         OpportunitiesPage.fillDealDetails();
+    }
+
+    @And("User is able to see list view to campaign view in deals")
+    public void userIsAbleToSeeListViewToCampaignViewInDeals() {
+        OpportunitiesPage.listViewToCampaignViewInDeals();
+    }
+
+    @And("User is able to click the won deals tile")
+    public void userIsAbleToClickTheWonDealsTile() {
+        OpportunitiesPage.clickTheWonDealsTile();
+    }
+
+    @And("User is able to select the lost deals tile")
+    public void userIsAbleToSelectTheLostDealsTile() {
+        OpportunitiesPage.clickTheLostDealsTile();
+    }
+
+    @And("User is able to see campaign view to list view in deals")
+    public void userIsAbleToSeeCampaignViewToListViewInDeals() {
+        OpportunitiesPage.clickCampaignViewToListViewInDeals();
+    }
+
+    @And("User is able to click the total deals tile")
+    public void userIsAbleToClickTheTotalDealsTile() {
+        OpportunitiesPage.clickTheTotalDealsTile();
+    }
+
+    @And("User is able to click here to email the report")
+    public void userIsAbleToClickHereToEmailTheReport() {
+        OpportunitiesPage.clickHereToEmailTheReport();
+    }
+
+    @And("User is able to click view deal icon")
+    public void userIsAbleToClickViewDealIcon() {
+        OpportunitiesPage.clickViewDealIcon();
+    }
+
+    @And("User is able to click edit deal icon")
+    public void userIsAbleToClickEditDealIcon() {
+        OpportunitiesPage.clickEditDealIcon();
+    }
+
+    @And("User is able to click comment deal icon")
+    public void userIsAbleToClickCommentDealIcon() {
+        OpportunitiesPage.clickCommentDealIcon();
+    }
+
+    @And("User is able to click delete deal icon")
+    public void userIsAbleToClickDeleteDealIcon() {
+        OpportunitiesPage.clickDeleteDealIcon();
+    }
+
+    @And("User ia able to click pagination on deals")
+    public void userIaAbleToClickPaginationOnDeals() {
+        OpportunitiesPage.clickPaginationOnDeals();
+    }
+
+    @And("User is able to select pagination drop down value in deal page")
+    public void userIsAbleToSelectPaginationDropDownValueInDealPage() {
+        OpportunitiesPage.selectPaginationDropDownValueInDealPage();
     }
 }
