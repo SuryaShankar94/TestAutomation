@@ -93,6 +93,7 @@ public class OpportunitiesSD extends TestSetup
     @And("User is able to click page drop down")
     public void userIsAbleToClickPageDropDown() {
         OpportunitiesPage.clickPageDropDown();
+        UserActions.wait_Sec();
     }
 
 
