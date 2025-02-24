@@ -2,7 +2,7 @@ package base;
 
 import org.openqa.selenium.By;
 
-public class OpportunitiesLocators extends TestSetup {
+public class OpportunitiesLocators  {
     public static final By opportunities = By.xpath("//*[starts-with(text(),'Opportunities')]");
     public static final By opportunitiesManageLeads = By.xpath("//*[starts-with(text(),'Manage Leads')]");
     public static final By opportunitiesManageDeals = By.xpath("//*[starts-with(text(),'Manage Deals')]");
@@ -10,7 +10,7 @@ public class OpportunitiesLocators extends TestSetup {
     public static final By leadForCompany = By.xpath("//select[@class='form-control ng-untouched ng-pristine ng-valid']");
     public static final By pipelineId = By.id("createdForPipelineId");
     public static final By pipelineStageId = By.id("createdForPipelineStageId");
-    public static final By addleadCommentId =By.id("leadComment");
+    public static final By addleadCommentId = By.id("leadComment");
     public static final By firstNameId= By.xpath("//input[@id='First_Name']");
     public static final By lastNameId= By.xpath("//input[@id='Last_Name']");
     public static final By companyId= By.xpath("//input[@id='Company']");
@@ -26,7 +26,7 @@ public class OpportunitiesLocators extends TestSetup {
     public static final By amountId = By.xpath("//input[@id='Amount']");
     public static final By industryId = By.xpath("//input[@id='Industry']");
     public static final By regionID = By.xpath("//input[@id='Region']");
-    public static final By saveLead =By.id("saveLead");
+    public static final By saveLead = By.id("saveLead");
     public static final By campaignView = By.xpath("//i[@class='fa fa-folder-open p10']");
     public static final By listView = By.xpath("//i[@class='fa fa-th-list p10']");
     public static final By eMailReport = By.xpath("//i[@class='fas fa-file-export p10']");
@@ -49,20 +49,20 @@ public class OpportunitiesLocators extends TestSetup {
     public static final By leadCommentTxtArea = By.xpath("//textarea[contains(@class,'ng-pristine ng-valid')]");
     public static final By leadCommentSubmit = By.xpath("//button[@class='btn btn-primary transition mb5']");
     public static final By leadCommentWindowClose = By.xpath("//a[@class='close-circle' and @title='Close']");
-    public static final By leadDelete = By.xpath("(//i[@class='fa fa-trash-o trashIconCustomization'])[3]");
+    public static final By leadDelete = By.xpath("(//i[@class='fa fa-trash-o trashIconCustomization'])[1]");
     public static final By leadDeleteReject = By.xpath("//button[@class='swal2-cancel styled']");
-    public static final By leadDeleteApprove = By.xpath("//button[@class='swal2-confirm styled']");
+    public static final By leadDeleteApprove = By.xpath("//button[contains(@class,'swal2-confirm styled')]");
     public static final By leadReacordCnt = By.xpath("(//span[starts-with(text(),'Total Records :')])[1]");
     public static final By leadNextPage = By.xpath("//i[@class='fa fa-angle-right' and contains(@title,'Next')]");
     public static final By leadLastPage = By.xpath("//i[@class='fa fa-angle-double-right' and contains(@title,'Last')]");
     public static final By leadPreviousPage = By.xpath("(//i[@class='fa fa-angle-left' and contains(@title,'Previous')])[1]");
     public static final By leadFirstPage = By.xpath("(//i[@class='fa fa-angle-double-left' and @title='First'])[1]");
     public static final By leadPageCntDrpDwn = By.xpath("(//select[contains(@class,'form-control margin-top pointer mt_10 ')])[1]");
-    public static final By registerDeal =By.xpath("(//button[@class='button_blue bgcolor-unset'])[4]");
+    public static final By registerDeal = By.xpath("(//span[contains(text(),'Register Deal')])[3]");
     //############################################ DEAL #############################################################
     public static final By addDealButton = By.xpath("//button[@class='button_blue bgcolor-unset p0 btn-transitions mrgt1-2']");
     public static final By dealCompany = By.xpath("//select[@id='createdForCompanyId']");
-    public static final By dealPipeline = By.xpath("//select[@id='createdForPipelineId']");
+    public static final By dealPipeline = By.xpath("//select[@id='createdForPipelineId' and @placeholder='pipelineId']");
     public static final By dealPipeLineStage = By.xpath("//select[@id='createdForPipelineStageId']");
     public static final By dealComment = By.xpath("//textarea[@id='dealComment']");
     public static final By dealAttachdrpDwn = By.xpath("//button[@class='btn Btn-Green mb_btn']");
@@ -84,7 +84,8 @@ public class OpportunitiesLocators extends TestSetup {
     public static final By attachSelectedLeadButton = By.xpath("//button[@id='saveLead']");
     public static final By attachSelectedContactButton = By.xpath("//button[@class='button_blue button_disabled bgcolor-unset']");
     public static final By searchLead = By.xpath("//input[@class='form-control pr-pl ml ng-untouched ng-pristine ng-valid']");
-    public static final By searchLeadButton = By.xpath("//button[@class='search-box-item-click top mb_v_search']");
+    public static final By searchLeadButton = By.xpath("//button[contains(@class,'search-box-item-click top mb_v_search')]");
+    public static final By searchCancel = By.xpath("//button[contains(@class,'glyphicon-remove search-box-item-clear')]");
     public static final By dealType = By.xpath("//input[@id='Deal_Type']");
     public static final By dealName = By.xpath("//input[@id='Deal_Name']");
     public static final By dealAmount = By.xpath("//input[@id='Amount']");
@@ -99,20 +100,21 @@ public class OpportunitiesLocators extends TestSetup {
     public static final By searchDeals = By.xpath("//input[@class='form-control ng-untouched ng-pristine ng-valid' and @placeholder='Search']");
     public static final By clickSearchDealIcon = By.xpath("//button[@class='search-box-item-click']");
     public static final By clickCloseSearchDealIcon = By.xpath("//button[@class='glyphicon glyphicon-remove search-box-item-clear']");
-    public static final By viewDeal = By.xpath("//a[@id='deal' and @data-original-title='View Deal']");
+    public static final By viewDeal = By.xpath("(//a[@id='deal'])[1]");
     public static final By closeViewDeal = By.xpath("//a[contains(@class,'pull-right close-circle mrg')]");
-    public static final By editDeal = By.xpath("//a[@id='deal' and @data-original-title='Edit Deal']");
-    public static final By deleteDeal = By.xpath("//a[@id='deal' and @data-original-title='Delete Deal']");
+    public static final By editDeal = By.xpath("(//a[@id='deal'])[2]");
+    public static final By deleteDeal = By.xpath("(//a[@id='deal'])[3]");
     public static final By cancelDeleteDeal = By.xpath("//button[contains(text(),'Cancel') and @class='swal2-cancel styled']");
     public static final By acceptDeleteDeal = By.xpath("//button[contains(text(),'Yes, delete it!')]");
     public static final By commentDeal = By.xpath("//a[@class='custom-icon' and @data-original-title='Comments/History']");
-    public static final By commentHistoryDeal = By.xpath("//textarea[@class='ng-untouched ng-pristine ng-valid']");
+    public static final By commentHistoryDeal = By.xpath("//textarea[@class='ng-pristine ng-valid ng-touched']");
     public static final By totalDealRecords = By.xpath("(//span[normalize-space()='Total Records :'])[1]");
-    public static final By dealNextPg = By.xpath("//i[@data-original-title='Next']");
-    public static final By dealLastPg = By.xpath("//i[@data-original-title='Last']");
-    public static final By dealFirstPg = By.xpath("//i[@data-original-title='First']");
-    public static final By dealPreviousPg = By.xpath("//i[@data-original-title='Previous']");
+    public static final By dealNextPg = By.xpath("(//i[@title='Next'])[1]");
+    public static final By dealLastPg = By.xpath("(//i[@class='fa fa-angle-double-right'])[1]");
+    public static final By dealFirstPg = By.xpath("(//i[@class='fa fa-angle-double-left'])[1]");
+    public static final By dealPreviousPg = By.xpath("(//i[@class='fa fa-angle-left'])[1]");
     public static final By dealRecordPageCnt = By.xpath("(//span[normalize-space()='Total Records :'])[1]");
+    public static final By dealCloseCommentWindow = By.xpath("(//a[@class='close-circle'])[2]");
     public static final By dealCloseDate = By.xpath("//div[contains(@class,'flatpickr-calendar animate showTimeInput open arrow')]//div[@class='dayContainer']//span[@class='flatpickr-day ']");
     public static final By selectCloseDate = By.xpath("//input[@id='flat-picker']");
 }
