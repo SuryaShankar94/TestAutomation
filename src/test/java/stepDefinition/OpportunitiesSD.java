@@ -54,9 +54,9 @@ public class OpportunitiesSD extends TestSetup
         OpportunitiesPage.listViewToCampaignView();
     }
 
-    @Then("User is able to click the won leads tile")
-    public void userIsAbleToClickTheWonLeadsTile() {
-        OpportunitiesPage.clickTheWonLeadsTile();
+    @Then("User is able to click the leads tile")
+    public void userIsAbleToClickTheLeadsTile() {
+        OpportunitiesPage.clickTheLeadsTile();
     }
 
     @And("User is able to see campaign view to list view")
@@ -132,9 +132,9 @@ public class OpportunitiesSD extends TestSetup
         OpportunitiesPage.listViewToCampaignViewInDeals();
     }
 
-    @And("User is able to click the won deals tile")
-    public void userIsAbleToClickTheWonDealsTile() {
-        OpportunitiesPage.clickTheWonDealsTile();
+    @And("User is able to click the deals tile")
+    public void userIsAbleToClickTheDealsTile() {
+        OpportunitiesPage.clickTheDealsTile();
     }
 
     @And("User is able to select the lost deals tile")
