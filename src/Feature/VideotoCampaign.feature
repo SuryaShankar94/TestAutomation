@@ -19,4 +19,21 @@ Feature: Opportunities
     #And User is able to auto response to your email
     And User is able to send a test mail before launch
     And User is able to perform spam check
-    And User is able to select the appropriate mode for launch.
+    And User is able to launch video campaign now
+    When Verify user is able to mouserhover on campaign
+    Then User is able to select create campaign
+    And User is able to click create a video campaign
+    And User is able to fill the to partner campaign details
+    And User is able to select video for campaign
+    And User is able to select email template
+    And User is able to select partner group
+    And User is able to save video campaign
+    When Verify user is able to mouserhover on campaign
+    Then User is able to select create campaign
+    And User is able to click create a video campaign
+    And User is able to fill the to partner campaign details
+    And User is able to select video for campaign
+    And User is able to select email template
+    And User is able to select partner group
+    And User is able to schedule video campaign
+
