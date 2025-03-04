@@ -69,7 +69,7 @@ public class VideoToCampaignPage extends TestSetup {
 
         UserActions.getDropDownSelectIndex(VideoCampaignLocators.sortSelectVideoCamp,1);
         String searchKey = userInputProperties.getProperty("videoNameforCapmaign");
-        UserActions.wait_Sec();
+        //UserActions.wait_Sec();
         if(searchKey!=null){
             //UserActions.wait_Sec();
             UserActions.searchValue(VideoCampaignLocators.searchSelectVideoCamp,VideoCampaignLocators.searchSelectVideoCampButton,searchKey);
@@ -107,13 +107,15 @@ public class VideoToCampaignPage extends TestSetup {
     public static void selectEmailTemplate() {
         UserActions.getDropDownSelectIndex(VideoCampaignLocators.sortSelecteMailTemplate,1);
         UserActions.click(VideoCampaignLocators.clickFilterButton);
-        UserActions.wait_Sec();
+        //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.click(VideoCampaignLocators.applyFilter);
-        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.click(VideoCampaignLocators.selectFolderFilter);
-        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+       // UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.click(VideoCampaignLocators.filterApplyButton);
-        UserActions.wait_Sec();
+       // UserActions.wait_Sec();
+        UserActions.click(VideoCampaignLocators.filterClearButton);
+        //UserActions.wait_Sec();
         String searchKey = userInputProperties.getProperty("emailTemplateforCamp");
         //System.out.println("eMail Template Search KEY==>"+searchKey);
         if (searchKey.isEmpty()){
@@ -160,10 +162,10 @@ public class VideoToCampaignPage extends TestSetup {
     }
 
     public static void selectPartnerGroup() {
-        UserActions.wait_Sec();
+        //UserActions.wait_Sec();
         UserActions.getDropDownSelectIndex(VideoCampaignLocators.partnerGroupSelectionOrder,1);
         String searchKey = userInputProperties.getProperty("selectPartnerGroup");
-        UserActions.wait_Sec();
+       // UserActions.wait_Sec();
         if(searchKey!=null){
             UserActions.searchValue(VideoCampaignLocators.searchPartnerGroup,VideoCampaignLocators.searchPartnerGroupButton,searchKey);
             UserActions.click(VideoCampaignLocators.selectPartnerCheckBox);
@@ -199,25 +201,26 @@ public class VideoToCampaignPage extends TestSetup {
         UserActions.click(VideoCampaignLocators.closeSpamCheck);
     }
 
-    public static void selectTheAppropriateModeForLaunch() {
-        String launchMode = userInputProperties.getProperty("campaignLaunch");
-        if(launchMode.equalsIgnoreCase("now")) {
-            UserActions.wait_Sec();
-            UserActions.click(VideoCampaignLocators.launchNow);
-            UserActions.click(VideoCampaignLocators.launchButton);
-        } else if(launchMode.equalsIgnoreCase("schedule")) {
-            UserActions.click(VideoCampaignLocators.launchShedule);
-            UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-            UserActions.getDropDownSelectIndex(VideoCampaignLocators.sheduleCountry,3);
-            //UserActions.click(VideoCampaignLocators.sheduleLaunchTime);
-            UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-            //UserActions.click(VideoCampaignLocators.sheduleDate);
-            UserActions.selectDate(VideoCampaignLocators.sheduleLaunchTime,VideoCampaignLocators.sheduleDate);
-            UserActions.click(VideoCampaignLocators.sheduleButton);
-        }else {
-            UserActions.wait_Sec();
-            UserActions.click(VideoCampaignLocators.launchSave);
-            UserActions.click(VideoCampaignLocators.saveButton);
-        }
+    public static void scheduleVideoCampaign() {
+        UserActions.click(VideoCampaignLocators.launchShedule);
+        //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.getDropDownSelectIndex(VideoCampaignLocators.sheduleCountry,3);
+        UserActions.click(VideoCampaignLocators.sheduleLaunchTime);
+        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.click(VideoCampaignLocators.sheduleDate);
+        // UserActions.selectDate(VideoCampaignLocators.sheduleLaunchTime,VideoCampaignLocators.sheduleDate);
+        UserActions.click(VideoCampaignLocators.sheduleButton);
+    }
+
+    public static void launchVideoCampaignNow() {
+        UserActions.wait_Sec();
+        UserActions.click(VideoCampaignLocators.launchNow);
+        UserActions.click(VideoCampaignLocators.launchButton);
+    }
+
+    public static void saveVideoCampaign() {
+        UserActions.wait_Sec();
+        UserActions.click(VideoCampaignLocators.launchSave);
+        UserActions.click(VideoCampaignLocators.saveButton);
     }
 }
