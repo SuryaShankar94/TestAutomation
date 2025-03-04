@@ -67,9 +67,18 @@ public class VideoToCampaignSD extends TestSetup {
         VideoToCampaignPage.performSpamCheck();
     }
 
+    @And("User is able to schedule video campaign")
+    public void userIsAbleToScheduleVideoCampaign() {
+        VideoToCampaignPage.scheduleVideoCampaign();
+    }
 
-    @And("User is able to select the appropriate mode for launch.")
-    public void userIsAbleToSelectTheAppropriateModeForLaunch() {
-        VideoToCampaignPage.selectTheAppropriateModeForLaunch();
+    @And("User is able to launch video campaign now")
+    public void userIsAbleToLaunchVideoCampaignNow() {
+        VideoToCampaignPage.launchVideoCampaignNow();
+    }
+
+    @And("User is able to save video campaign")
+    public void userIsAbleToSaveVideoCampaign() {
+        VideoToCampaignPage.saveVideoCampaign();
     }
 }

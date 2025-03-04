@@ -182,8 +182,38 @@ public class OpportunitiesSD extends TestSetup
         OpportunitiesPage.clickPaginationOnDeals();
     }
 
-    @And("User is able to select pagination drop down value in deal page")
-    public void userIsAbleToSelectPaginationDropDownValueInDealPage() {
-        OpportunitiesPage.selectPaginationDropDownValueInDealPage();
+    @And("User is able to click edit deal stage icon")
+    public void userIsAbleToClickEditDealStageIcon() {
+        OpportunitiesPage.editDealStageIcon();
+    }
+
+    @And("User is able to perform pagination action on campaigns")
+    public void userIsAbleToPerformPaginationActionOnCampaigns() {
+        OpportunitiesPage.performPaginationActionOnCampaigns();
+    }
+
+    @And("User is able to click view Lead for this campaign")
+    public void userIsAbleToClickViewLeadForThisCampaign() {
+        OpportunitiesPage.clickViewLeadForThisCampaign();
+    }
+
+    @And("User is able to preview the campaign leads")
+    public void userIsAbleToPreviewTheCampaignLeads() {
+        OpportunitiesPage.previewTheCampaignLeads();
+    }
+
+    @And("User is able to comment the campaign leads")
+    public void userIsAbleToCommentTheCampaignLeads() {
+        OpportunitiesPage.commentTheCampaignLeads();
+    }
+
+    @And("User is able to edit the campaign leads")
+    public void userIsAbleToEditTheCampaignLeads() {
+        OpportunitiesPage.editTheCampaignLeads();
+    }
+
+    @And("User is able to delete the campaign leads")
+    public void userIsAbleToDeleteTheCampaignLeads() {
+        OpportunitiesPage.deleteTheCampaignLeads();
     }
 }
