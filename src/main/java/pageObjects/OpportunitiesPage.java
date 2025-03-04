@@ -475,6 +475,7 @@ public class OpportunitiesPage extends TestSetup{
         UserActions.click((OpportunitiesLocators.cancelDeleteDeal));
         locator =OpportunitiesLocators.closeViewDeal;
         UserActions.closeSearch(OpportunitiesLocators.clickCloseSearchDealIcon);
+
     }
 
     public static void clickPaginationOnDeals() {
@@ -504,18 +505,12 @@ public class OpportunitiesPage extends TestSetup{
     public static void clickViewLeadForThisCampaign() {
         String searchValue = userInputProperties.getProperty("campLeadNameSearch");
         UserActions.wait_Sec();UserActions.wait_Sec();
-        System.out.println("Search Key=>"+searchValue);
         By locator = OpportunitiesLocators.viewLeadsfortheseCampSearchBox;
         UserActions.waitForElementVisible(locator);
-        System.out.println("SCROLLING???");
         //UserActions.scrolling(locator);
-        //UserActions.wait_Sec();UserActions.wait_Sec();
-        //UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.searchLeadOrDeal(locator,OpportunitiesLocators.viewLeadsfortheseCampIcon, searchValue);
-
         UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.click(OpportunitiesLocators.viewLeadsfortheseCamp);
-      //  UserActions.closeSearch(OpportunitiesLocators.clickCloseSearchDealIcon);
     }
 
     public static void performPaginationActionOnCampaigns() {
@@ -533,72 +528,163 @@ public class OpportunitiesPage extends TestSetup{
     public static void previewTheCampaignLeads() {
        // UserActions.click(OpportunitiesLocators.eMailReport);
         UserActions.wait_Sec();
-        String searchValue = userInputProperties.getProperty("campLeadNameforSearch");
-        UserActions.wait_Sec();UserActions.wait_Sec();
-        UserActions.searchLeadOrDeal(OpportunitiesLocators.viewLeadsfortheseCampSearchBox,OpportunitiesLocators.viewLeadsfortheseCampIcon, searchValue);
+        //UserActions.wait_Sec();//UserActions.wait_Sec();
         By locator = OpportunitiesLocators.campViewLeadPreview;
         UserActions.waitForElementVisible(locator);
-        UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.click(locator);
         locator =OpportunitiesLocators.closeViewDeal;
-        UserActions.wait_Sec();UserActions.wait_Sec();//UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.waitForElementVisible(locator);
         UserActions.click(locator);
-        UserActions.closeSearch(OpportunitiesLocators.clickCloseSearchDealIcon);
     }
 
     public static void commentTheCampaignLeads() {
-        String searchValue = userInputProperties.getProperty("campLeadNameforSearch");
-        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-        UserActions.searchLeadOrDeal(OpportunitiesLocators.viewLeadsfortheseCampSearchBox,OpportunitiesLocators.viewLeadsfortheseCampIcon, searchValue);
+        clickViewLeadForThisCampaign();
         By locator = OpportunitiesLocators.campViewLeadComment;
         UserActions.waitForElementVisible(locator);
-        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.waitForElementVisible(locator);
+        UserActions.click(locator);
+        UserActions.setValue(OpportunitiesLocators.commentHistoryDeal,"Comment History Lead");
+        locator = OpportunitiesLocators.dealCommentSubmit;
+        UserActions.waitForElementVisible(locator);
+     //   UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.click(locator);
+        locator =OpportunitiesLocators.dealCloseCommentWindow;
+        UserActions.click(locator);
+     }
+
+    public static void editTheCampaignLeads() {
+        By locator = OpportunitiesLocators.campViewLeadEdit;
+        UserActions.waitForElementVisible(locator);
+        if(UserActions.isElementDisplayed(locator)) {
+            UserActions.click(locator);
+            //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+            //UserActions.getDropDownSelectIndex(OpportunitiesLocators.dealStageValue,1);
+            locator = OpportunitiesLocators.dealStageComment;
+            UserActions.setValue(locator,"Stage value updated from the drop down");
+            UserActions.setValue(OpportunitiesLocators.websiteId,"www.xamplify.co");
+            UserActions.setValue(OpportunitiesLocators.industryId,"IT");
+            UserActions.setValue(OpportunitiesLocators.regionID,"Asaia");
+            UserActions.click(OpportunitiesLocators.campViewLeadUpdate);
+        } else {
+            ExtentCucumberAdapter.addTestStepLog("Edit Option is not enable so please check once");
+        }
+     }
+
+    public static void deleteTheCampaignLeads() {
+        clickViewLeadForThisCampaign();
+        By locator = OpportunitiesLocators.campViewLeadDelete;
+        UserActions.waitForElementVisible(locator);
+        UserActions.click(locator);
+       // UserActions.click(OpportunitiesLocators.acceptDeleteDeal);
+        //or
+        UserActions.click((OpportunitiesLocators.cancelDeleteDeal));
+        locator =OpportunitiesLocators.closeViewDeal;
+        UserActions.click(locator);
+    }
+
+    public static void viewDealForThisCampaign() {
+        String searchValue = userInputProperties.getProperty("campLeadNameSearch");
+        //UserActions.wait_Sec();UserActions.wait_Sec();
+        System.out.println("Step 0");
+        By locator = OpportunitiesLocators.campViewDealSearchBox;
+        UserActions.waitForElementVisible(locator);
+        //UserActions.scrolling(locator);
+        UserActions.searchLeadOrDeal(locator,OpportunitiesLocators.campViewDealSearchIcon, searchValue);
+        //UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.click(OpportunitiesLocators.viewDealforThisCampaign);
+    }
+
+    public static void viewTheCampaignDeals() {
+        UserActions.wait_Sec();
+       // UserActions.wait_Sec();UserActions.wait_Sec();
+        By locator = OpportunitiesLocators.campViewLeadPreview;
+        UserActions.waitForElementVisible(locator);
+        UserActions.click(locator);
+        locator =OpportunitiesLocators.closeViewDeal;
+        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.waitForElementVisible(locator);UserActions.waitForElementVisible(locator);
+        UserActions.click(locator);
+    }
+
+    public static void commentTheCampaignDeals() {
+        viewDealForThisCampaign();
+        By locator = OpportunitiesLocators.campViewLeadComment;
+        UserActions.waitForElementVisible(locator);
+        UserActions.waitForElementVisible(locator);
         UserActions.click(locator);
         UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.setValue(OpportunitiesLocators.commentHistoryDeal,"Comment History Lead");
         locator = OpportunitiesLocators.dealCommentSubmit;
         UserActions.waitForElementVisible(locator);
-        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.wait_Sec();UserActions.wait_Sec();//UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.click(locator);
         locator =OpportunitiesLocators.dealCloseCommentWindow;
         UserActions.click(locator);
-        UserActions.closeSearch(OpportunitiesLocators.clickCloseSearchDealIcon);
     }
 
-    public static void editTheCampaignLeads() {
-        String searchValue = userInputProperties.getProperty("campLeadNameforSearch");
-        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-        //UserActions.searchLeadOrDeal(OpportunitiesLocators.viewLeadsfortheseCampSearchBox,OpportunitiesLocators.viewLeadsfortheseCampIcon, searchValue);
+    public static void editTheCampaignDeals() {
         By locator = OpportunitiesLocators.campViewLeadEdit;
         UserActions.waitForElementVisible(locator);
         if(UserActions.isElementDisplayed(locator)) {
             UserActions.click(locator);
             UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-            UserActions.getDropDownSelectIndex(OpportunitiesLocators.dealStageValue,3);
-            UserActions.setValue(OpportunitiesLocators.dealStageComment,"Stage value updated from the drop down");
-            UserActions.setValue(OpportunitiesLocators.industryId,"IT");
-            UserActions.setValue(OpportunitiesLocators.regionID,"Asaia");
-            UserActions.setValue(OpportunitiesLocators.websiteId,"www.xamplify.co");
-            UserActions.click(OpportunitiesLocators.dealStageUpdateBtn);
+            UserActions.waitForElementVisible(locator);
+            UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+            UserActions.wait_Sec();UserActions.wait_Sec();//UserActions.wait_Sec();UserActions.wait_Sec();
+            UserActions.getDropDownSelectIndex(OpportunitiesLocators.campViewEditDealStage,1);
+            locator = OpportunitiesLocators.campViewEditAddComment;
+            UserActions.setValue(locator,"Stage value and comment also updated from the drop down");
+            UserActions.click(OpportunitiesLocators.campViewUpdateDeal);
         } else {
-            ExtentCucumberAdapter.addTestStepLog("Edit Option is nnot enable so please check once");
+            ExtentCucumberAdapter.addTestStepLog("Edit Option is not enable so please check once");
         }
-       // UserActions.closeSearch(OpportunitiesLocators.clickCloseSearchDealIcon);
     }
 
-    public static void deleteTheCampaignLeads() {
-        String searchValue = userInputProperties.getProperty("campLeadNameforSearch");
-        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-        //UserActions.searchLeadOrDeal(OpportunitiesLocators.viewLeadsfortheseCampSearchBox,OpportunitiesLocators.viewLeadsfortheseCampIcon, searchValue);
-        By locator = OpportunitiesLocators.campViewLeadDelete;
+    public static void deleteTheCampaignDeals() {
+        //UserActions.wait_Sec();UserActions.wait_Sec();
+        viewDealForThisCampaign();
+        UserActions.wait_Sec();UserActions.wait_Sec();//UserActions.wait_Sec();UserActions.wait_Sec();
+        //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        By locator = OpportunitiesLocators.campViewDealDelete;
         UserActions.waitForElementVisible(locator);
-        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        //UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.click(locator);
-        UserActions.click(OpportunitiesLocators.acceptDeleteDeal);
+        //UserActions.wait_Sec();UserActions.wait_Sec();
+        //UserActions.waitForElementVisible(locator);
+        //UserActions.click(OpportunitiesLocators.campViewConfirmDelete);
         //or
-        UserActions.click((OpportunitiesLocators.cancelDeleteDeal));
-        UserActions.closeSearch(OpportunitiesLocators.clickCloseSearchDealIcon);
+        UserActions.click((OpportunitiesLocators.campViewCancelDelete));
+        //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
         locator =OpportunitiesLocators.closeViewDeal;
+        UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.waitForElementVisible(locator);
+       // UserActions.scrolling(locator);
+        System.out.println("RAGADA DEL");
+        UserActions.click(locator);
+    }
+
+    public static void changeTheDealStageInCampaignView() {
+        viewDealForThisCampaign();
+        By locator = OpportunitiesLocators.editDealStageStatus;
+        UserActions.waitForElementVisible(locator);
+        UserActions.click(locator);
+        locator = OpportunitiesLocators.dealStageValue;
+        //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.getDropDownSelectIndex(locator,3);
+        UserActions.setValue(OpportunitiesLocators.dealStageComment,"Stage value updated from the drop down");
+        UserActions.click(OpportunitiesLocators.dealStageUpdateBtn);
+        UserActions.click(OpportunitiesLocators.closeViewDeal);
+    }
+
+    public static void performPaginationOnCampaignDeals() {
+        By nextPg = OpportunitiesLocators.campViewDealNextPg;
+        By firstPg = OpportunitiesLocators.campViewDealFirstPg;
+        By lastPg = OpportunitiesLocators.campViewDealLastPg;
+        By previousPg = OpportunitiesLocators.campViewDealPreviousPg;
+        UserActions.performPagination(nextPg,previousPg,lastPg,firstPg);
+//        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        //UserActions.getDropDownSelectIndex(OpportunitiesLocators.campViewDealDrpDwn,2);
+        //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+
     }
 }
