@@ -216,4 +216,39 @@ public class OpportunitiesSD extends TestSetup
     public void userIsAbleToDeleteTheCampaignLeads() {
         OpportunitiesPage.deleteTheCampaignLeads();
     }
+
+    @And("User is able to click view deal for this campaign")
+    public void userIsAbleToClickViewDealForThisCampaign() {
+        OpportunitiesPage.viewDealForThisCampaign();
+    }
+
+    @And("User is able to view the campaign deals")
+    public void userIsAbleToViewTheCampaignDeals() {
+        OpportunitiesPage.viewTheCampaignDeals();
+    }
+
+    @And("User is able to comment the campaign Deals")
+    public void userIsAbleToCommentTheCampaignDeals() {
+        OpportunitiesPage.commentTheCampaignDeals();
+    }
+
+    @And("User is able to edit the campaign Deals")
+    public void userIsAbleToEditTheCampaignDeals() {
+        OpportunitiesPage.editTheCampaignDeals();
+    }
+
+    @And("User is able to delete the campaign Deals")
+    public void userIsAbleToDeleteTheCampaignDeals() {
+        OpportunitiesPage.deleteTheCampaignDeals();
+    }
+
+    @And("User is able to change the deal stage in campaign View")
+    public void userIsAbleToChangeTheDealStageInCampaignView() {
+        OpportunitiesPage.changeTheDealStageInCampaignView();
+    }
+
+    @And("User is able to perform pagination on campaign deals")
+    public void userIsAbleToPerformPaginationOnCampaignDeals() {
+        OpportunitiesPage.performPaginationOnCampaignDeals();
+    }
 }
