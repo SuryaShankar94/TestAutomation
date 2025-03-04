@@ -1,5 +1,6 @@
 package utility;
 
+import base.OpportunitiesLocators;
 import base.TestSetup;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -25,8 +26,13 @@ public class UserActions extends TestSetup {
     public static void setValue(By locator, String input)
     {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        UserActions.wait_Sec();
+        System.out.println("eMail Address 1"+input);
         wait.until(ExpectedConditions.elementToBeClickable(locator));
+        System.out.println("eMail Address 2"+input);
+        UserActions.waitForElementVisible(locator);
         driver.findElement(locator).click();
+        System.out.println("eMail Address 3"+input);
         driver.findElement(locator).clear();
         driver.findElement(locator).sendKeys(input);
     }
@@ -36,6 +42,7 @@ public class UserActions extends TestSetup {
             wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
             wait.until(ExpectedConditions.elementToBeClickable(locator));
             driver.findElement(locator).click();
+
         }catch (TimeoutException t){
             wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
             driver.findElement(locator).click();
@@ -189,7 +196,10 @@ public class UserActions extends TestSetup {
 
     public static void getDropDownSelectIndex(By locator, int index) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+       // System.out.println("SDSDSD");
+
         Select dropdown = new Select(driver.findElement(locator));
+        //System.out.println("SDSDSDDGGTTR");
         dropdown.selectByIndex(index);
     }
 
@@ -209,4 +219,84 @@ public class UserActions extends TestSetup {
         }
     }
 
+    public static void selectDate(By closeDate,By dealCloseDate) {
+        System.out.println("VALUE 2");
+        UserActions.click(closeDate);
+        System.out.println("VALUE 3");
+        //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        System.out.println("COUNT==>"+UserActions.getListOfElements(dealCloseDate).stream().count());
+
+        List<WebElement> getCloseDates = UserActions.getListOfElements(dealCloseDate);
+        System.out.println("CLOSE DATEEEEE---->"+getCloseDates);
+        UserActions.wait_Sec();
+        if(!getCloseDates.isEmpty()) {
+            UserActions.wait_Sec();
+           // System.out.println("Select CLOSE DATEEEEE---->"+getCloseDates.get(1));
+            getCloseDates.get(0).click();
+            //UserActions.waitForElementVisible(locator);
+        }
+        /// /////////////////////////////////////////////////////////////////////////////////
+
+//        for (WebElement element : getCloseDates){
+//            System.out.println("Element Value:::"+element.getAccessibleName());
+//            System.out.println("Element Value:::"+element.toString());
+//        }
+//        getCloseDates.get(0).click();
+    }
+
+    public static void searchLeadOrDeal(By searchDeals, By clickSearchDealIcon, String searchValue) {
+        //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        System.out.println("Step 0");
+        UserActions.waitForElementVisible(searchDeals);
+        UserActions.setValue(searchDeals,searchValue);
+        System.out.println("Step 1");
+        //UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.click(clickSearchDealIcon);
+        System.out.println("Step 2");
+    }
+
+    public static void searchValue(By searchBox, By clickSearchIcon, String searchValue) {
+       // System.out.println("Search KEY==>STEP111"+searchValue+"Search Box"+searchBox);
+        UserActions.waitForElementVisible(searchBox);
+        //UserActions.wait_Sec();
+        UserActions.setValue(searchBox,searchValue);
+       // System.out.println("Search KEY==>STEP2");
+        UserActions.click(clickSearchIcon);
+    }
+    public static void closeSearch(By clickCloseSearchButton) {
+        UserActions.waitForElementVisible(clickCloseSearchButton);
+        UserActions.click(clickCloseSearchButton);
+    }
+    public static boolean isClicked(By locator)
+    {
+        try {
+            UserActions.waitForElementVisible(locator);
+            UserActions.click(locator);
+            return true;
+        } catch(Exception e){
+            return false;
+        }
+    }
+
+    public static void performPagination(By nextPg, By previousPg, By lastPg, By firstPg) {
+        Boolean val = UserActions.isElementDisplayed(nextPg);
+        UserActions.waitForElementVisible(nextPg);
+        System.out.println("VALUE=>"+val);
+        if(val) {
+
+            System.out.println("Start");
+            UserActions.click(nextPg);
+            System.out.println("Next");
+            UserActions.wait_Sec();UserActions.wait_Sec();
+            UserActions.click(previousPg);
+            System.out.println("Previous");
+            UserActions.wait_Sec();UserActions.wait_Sec();
+            UserActions.click(lastPg);
+            System.out.println("Last");
+            UserActions.wait_Sec();UserActions.wait_Sec();
+            UserActions.click(firstPg);
+            System.out.println("First");
+           // UserActions.wait_Sec();UserActions.wait_Sec();
+        }
+    }
 }
