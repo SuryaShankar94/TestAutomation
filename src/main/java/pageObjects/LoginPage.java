@@ -13,13 +13,14 @@ public class LoginPage extends TestSetup {
     public static final By userFieldPassword = By.id("password");
     public static final By loginBtn = By.id("submitBitton");
     public static final By homePage = By.xpath("//span[contains(text(),'Account Dashboard')]");
-
+    public static final By myProfile = By.xpath("//i[@class='fa fa-angle-down']");
+    public static final By logoutBtn = By.xpath("//i[@class='icon-key']");
 
 
     public static void userLaunchesApplicationURL()
     {
         env = userInputProperties.getProperty("environment");
-        System.out.println("Env is selected is :" + env);
+        //System.out.println("Env is selected is :" + env);
         if(env.equals("Dev"))
         {
             url = userInputProperties.getProperty("appDevURL");
@@ -47,9 +48,15 @@ public class LoginPage extends TestSetup {
     public static void shouldDisplayExpectedPage(String expectedUrl)
     {
         String currentUrl = driver.getCurrentUrl();
-       // System.out.println("Current URL ==>>"+currentUrl);
-       // System.out.println("Expected URL ===> "+expectedUrl);
+        //System.out.println("Current URL ==>>"+currentUrl);
+        //System.out.println("Expected URL ===> "+expectedUrl);
         Assert.assertEquals(currentUrl,expectedUrl);
     }
 
+    public static void logoutTheXamplifyApplication() {
+        UserActions.click(myProfile);
+        //UserActions.waitForElementVisible(logoutBtn);
+        //System.out.println("Logout menu Displayed");
+        UserActions.click(logoutBtn);
+    }
 }

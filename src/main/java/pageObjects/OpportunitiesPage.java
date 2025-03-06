@@ -53,7 +53,7 @@ public class OpportunitiesPage extends TestSetup{
         UserActions.setValue(OpportunitiesLocators.lastNameId,"Lead"+System.currentTimeMillis());
         UserActions.setValue(OpportunitiesLocators.companyId,"ISRO");
         UserActions.setValue(OpportunitiesLocators.emailId,"nitya.bns@gmail.com");
-        UserActions.setValue(OpportunitiesLocators.phoneNumberId,"98806363636");
+        //UserActions.setValue(OpportunitiesLocators.phoneNumberId,"98");
     }
 
     public static void SaveLeadButton() {
@@ -95,7 +95,7 @@ public class OpportunitiesPage extends TestSetup{
     }
 
     public static void clickViewLeadIcon() {
-        UserActions.wait_Sec();
+        UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.click(OpportunitiesLocators.leadView);
 //        By locator = OpportunitiesLocators.leadViewComments;
 //        UserActions.waitForElementVisible(locator);
@@ -107,7 +107,7 @@ public class OpportunitiesPage extends TestSetup{
 //        UserActions.click(locator);
 //        locator=OpportunitiesLocators.leadViewCloseButton;
 
-        UserActions.wait_Sec();
+        UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.click(OpportunitiesLocators.leadViewCloseButton);
     }
 
@@ -187,9 +187,9 @@ public class OpportunitiesPage extends TestSetup{
         UserActions.wait_Sec();
         UserActions.waitForElementVisible(locator);
         UserActions.wait_Sec();
-        UserActions.getDropDownSelectIndex(locator,2);
+       // UserActions.getDropDownSelectIndex(locator,2);
         UserActions.wait_Sec();
-        UserActions.getDropDownSelectIndex(locator,1);
+        //UserActions.getDropDownSelectIndex(locator,1);
     }
 
     public static void clickLeadToDealRegisterButton() {
@@ -557,7 +557,7 @@ public class OpportunitiesPage extends TestSetup{
         UserActions.waitForElementVisible(locator);
         if(UserActions.isElementDisplayed(locator)) {
             UserActions.click(locator);
-            //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+            UserActions.wait_Sec();UserActions.wait_Sec();//UserActions.wait_Sec();UserActions.wait_Sec();
             //UserActions.getDropDownSelectIndex(OpportunitiesLocators.dealStageValue,1);
             locator = OpportunitiesLocators.dealStageComment;
             UserActions.setValue(locator,"Stage value updated from the drop down");
@@ -575,9 +575,9 @@ public class OpportunitiesPage extends TestSetup{
         By locator = OpportunitiesLocators.campViewLeadDelete;
         UserActions.waitForElementVisible(locator);
         UserActions.click(locator);
-       // UserActions.click(OpportunitiesLocators.acceptDeleteDeal);
+        UserActions.click(OpportunitiesLocators.acceptDeleteDeal);
         //or
-        UserActions.click((OpportunitiesLocators.cancelDeleteDeal));
+       // UserActions.click((OpportunitiesLocators.cancelDeleteDeal));
         locator =OpportunitiesLocators.closeViewDeal;
         UserActions.click(locator);
     }
@@ -590,8 +590,11 @@ public class OpportunitiesPage extends TestSetup{
         UserActions.waitForElementVisible(locator);
         //UserActions.scrolling(locator);
         UserActions.searchLeadOrDeal(locator,OpportunitiesLocators.campViewDealSearchIcon, searchValue);
+        System.out.println("Step 1");
         //UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.click(OpportunitiesLocators.viewDealforThisCampaign);
+        System.out.println("Step 2");
+
     }
 
     public static void viewTheCampaignDeals() {
@@ -612,6 +615,7 @@ public class OpportunitiesPage extends TestSetup{
         UserActions.waitForElementVisible(locator);
         UserActions.waitForElementVisible(locator);
         UserActions.click(locator);
+        UserActions.wait_Sec();UserActions.wait_Sec();//UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.setValue(OpportunitiesLocators.commentHistoryDeal,"Comment History Lead");
         locator = OpportunitiesLocators.dealCommentSubmit;
@@ -630,7 +634,10 @@ public class OpportunitiesPage extends TestSetup{
             UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
             UserActions.waitForElementVisible(locator);
             UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-            UserActions.wait_Sec();UserActions.wait_Sec();//UserActions.wait_Sec();UserActions.wait_Sec();
+            UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+            locator = OpportunitiesLocators.dealPipeline;
+            if(UserActions.isElementDisplayed(locator))
+                UserActions.getDropDownSelectIndex(locator,1);
             UserActions.getDropDownSelectIndex(OpportunitiesLocators.campViewEditDealStage,1);
             locator = OpportunitiesLocators.campViewEditAddComment;
             UserActions.setValue(locator,"Stage value and comment also updated from the drop down");
@@ -641,26 +648,31 @@ public class OpportunitiesPage extends TestSetup{
     }
 
     public static void deleteTheCampaignDeals() {
-        //UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.wait_Sec();UserActions.wait_Sec();
+        System.out.println("Step 001");
         viewDealForThisCampaign();
+        System.out.println("1");
         UserActions.wait_Sec();UserActions.wait_Sec();//UserActions.wait_Sec();UserActions.wait_Sec();
         //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
         By locator = OpportunitiesLocators.campViewDealDelete;
         UserActions.waitForElementVisible(locator);
-        //UserActions.wait_Sec();UserActions.wait_Sec();
+        System.out.println("2");
+       // UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.click(locator);
-        //UserActions.wait_Sec();UserActions.wait_Sec();
-        //UserActions.waitForElementVisible(locator);
+        UserActions.wait_Sec();UserActions.wait_Sec();
         //UserActions.click(OpportunitiesLocators.campViewConfirmDelete);
         //or
         UserActions.click((OpportunitiesLocators.campViewCancelDelete));
-        //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-        locator =OpportunitiesLocators.closeViewDeal;
-        UserActions.wait_Sec();UserActions.wait_Sec();
-        UserActions.waitForElementVisible(locator);
-       // UserActions.scrolling(locator);
-        System.out.println("RAGADA DEL");
-        UserActions.click(locator);
+        System.out.println("Seleted?");
+        UserActions.wait_Sec();UserActions.wait_Sec();//UserActions.wait_Sec();UserActions.wait_Sec();
+        //UserActions.wait_Sec();UserActions.wait_Sec();
+       // UserActions.waitForElementVisible(OpportunitiesLocators.closeViewDeal);
+
+        UserActions.scrolling(By.id("permhref"));
+        if(UserActions.isElementDisplayed(OpportunitiesLocators.closeViewDeal))
+            UserActions.click(OpportunitiesLocators.closeViewDeal);
+        else
+            UserActions.click(By.id("permhref"));
     }
 
     public static void changeTheDealStageInCampaignView() {
@@ -669,11 +681,15 @@ public class OpportunitiesPage extends TestSetup{
         UserActions.waitForElementVisible(locator);
         UserActions.click(locator);
         locator = OpportunitiesLocators.dealStageValue;
-        //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.wait_Sec();UserActions.wait_Sec();//UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.getDropDownSelectIndex(locator,3);
         UserActions.setValue(OpportunitiesLocators.dealStageComment,"Stage value updated from the drop down");
         UserActions.click(OpportunitiesLocators.dealStageUpdateBtn);
-        UserActions.click(OpportunitiesLocators.closeViewDeal);
+        UserActions.scrolling(By.id("permhref"));
+        if(UserActions.isElementDisplayed(OpportunitiesLocators.closeViewDeal))
+            UserActions.click(OpportunitiesLocators.closeViewDeal);
+        else
+            UserActions.click(By.id("permhref"));
     }
 
     public static void performPaginationOnCampaignDeals() {
@@ -682,9 +698,34 @@ public class OpportunitiesPage extends TestSetup{
         By lastPg = OpportunitiesLocators.campViewDealLastPg;
         By previousPg = OpportunitiesLocators.campViewDealPreviousPg;
         UserActions.performPagination(nextPg,previousPg,lastPg,firstPg);
-//        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-        //UserActions.getDropDownSelectIndex(OpportunitiesLocators.campViewDealDrpDwn,2);
+        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.getDropDownSelectIndex(OpportunitiesLocators.campViewDealDrpDwn,2);
         //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
 
+    }
+
+    public static void filterDeals() {
+        UserActions.click(OpportunitiesLocators.leadsFilter);
+       // By fromDate = OpportunitiesLocators.selectFromDate;
+        By selectDate = OpportunitiesLocators.selectDealFromDate;
+        By selectPreviousMonth = OpportunitiesLocators.selectPreviousMonth;
+        By fromDate = OpportunitiesLocators.selecttoDate;
+        UserActions.selectDate(fromDate,selectDate,selectPreviousMonth,1); //to date
+        fromDate = OpportunitiesLocators.selectFromDate;
+        UserActions.selectDate(fromDate,selectDate,selectPreviousMonth,0); // from date
+        //UserActions.click(OpportunitiesLocators.dealAddedby);
+       //        UserActions.getDropDownSelectIndex(OpportunitiesLocators.dealAddedby_temp,1);
+        //UserActions.getMouserOverElement(OpportunitiesLocators.dealAddedby_temp);
+        //UserActions.click(OpportunitiesLocators.dealAddedby_temp);
+       // UserActions.setValue(OpportunitiesLocators.dealAddedby_temp,"automated_partner@analytify.com - ( Automated Partner )");
+
+        //UserActions.setValue(OpportunitiesLocators.dealAddedfor,"automatedVendor");
+        //UserActions.getDropDownSelectIndex(OpportunitiesLocators.dealStatus,2);
+        UserActions.click(OpportunitiesLocators.applyDealFilter);
+        //UserActions.click(OpportunitiesLocators.cancelDealFilter);
+    }
+
+    public static void applyFilterOnLeads() {
+        filterDeals();
     }
 }
