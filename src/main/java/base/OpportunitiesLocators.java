@@ -103,7 +103,7 @@ public class OpportunitiesLocators  {
     public static final By lostDeals = By.xpath("//div[contains(text(),'Lost Deals')]");
     public static final By totalDeals = By.xpath("//div[contains(text(),'Total Deals')]");
     public static final By clickHeretoEmailReport = By.xpath("//button[@class='btn btn-xs hidden-xs l-g-view']");
-    public static final By searchDeals = By.xpath("//input[@class='form-control ng-untouched ng-pristine ng-valid' and @placeholder='Search']");
+    public static final By searchDeals = By.xpath("// input[contains(@class,' ng-pristine ng-valid') and @placeholder='Search']");
     public static final By clickSearchDealIcon = By.xpath("//button[@class='search-box-item-click']");
     public static final By clickCloseSearchDealIcon = By.xpath("//button[@class='glyphicon glyphicon-remove search-box-item-clear']");
     public static final By viewDeal = By.xpath("(//a[@id='deal'])[1]");
@@ -127,8 +127,20 @@ public class OpportunitiesLocators  {
     public static final By dealRecordPageCnt = By.xpath("(//span[normalize-space()='Total Records :'])[1]");
     public static final By dealCloseCommentWindow = By.xpath("(//a[@class='close-circle'])[2]");
     public static final By dealCloseDate = By.xpath("//div[contains(@class,'flatpickr-calendar animate showTimeInput open arrow')]//div[@class='dayContainer']//span[@class='flatpickr-day ']");
-    public static final By selectCloseDate = By.xpath("//input[@id='flat-picker']");
-
+    public static final By selectCloseDate = By.xpath("(//input[@id='flat-picker'])[1]");
+    public static final By selectDealNextMonth = By.xpath("(//span[@class='flatpickr-next-month'])[2]");
+    public static final By selectFromDate = By.xpath("(//input[@id='flat-picker'])[1]");
+    public static final By selecttoDate = By.xpath("(//input[@id='flat-picker'])[2]");
+    public static final By selectPreviousMonth = By.xpath("(//span[@class='flatpickr-prev-month'])[1]");
+    public static final By selectDealFromDate = By.xpath("//div[contains(@class,'flatpickr-calendar animate ')]//div[@class='dayContainer']//span[@class='flatpickr-day ']");
+    //public static final By selectDealToDate = By.xpath("");
+    public static final By dealAddedby = By.xpath("(//ejs-dropdownlist[@id='ddlelement'])[1]");
+    public static final By dealAddedby_temp = By.xpath("(//span[@class='e-input-group e-control-wrapper e-ddl e-lib e-keyboard'])[1]");
+    public static final By dealAddedfor = By.xpath("(//ejs-dropdownlist[@id='ddlelement'])[2]");
+    //public static final By dealStatus = By.xpath("(//ejs-dropdownlist[@id='ddlelement'])[3]");
+    public static final By dealStatus = By.xpath("(//select[@id='ddlelement_hidden']");
+    public static final By applyDealFilter = By.xpath("//span[contains(@class,'btn Btn-Green transition txt_pd') and contains(text(),'Filter')]");
+    public static final By cancelDealFilter = By.xpath("//button[@class='close-circle']");
     public static final By viewLeadsfortheseCamp = By.xpath("(//i[@class='circled-number fa fa-users IconCustomization'])[1]");
     public static final By viewLeadsfortheseCampSearchBox = By.xpath("//input[contains(@class,'form-control pr-pl ml ng-')]");
     public static final By viewLeadsfortheseCampIcon = By.xpath("//button[contains(@class,'search-box-item-click top mb_v_search top')]");
@@ -144,7 +156,7 @@ public class OpportunitiesLocators  {
     public static final By campPageDrpDwn = By.xpath("(//select[contains(@class,'form-control margin-top pointer mt_')])[2]");
     public static final By campViewLeadUpdate = By.xpath("(//button[@id='saveLead'])[1]");
     public static final By campViewDealSearchBox = By.xpath("(//input[contains(@class,'form-control ng-')])[2]");
-    public static final By campViewDealSearchIcon = By.xpath("//button[@class='search-box-item-click']");
+    public static final By campViewDealSearchIcon = By.xpath("// button[contains(@class,'search-box-item-click')]");
     public static final By campViewDealSearchclear = By.xpath("//button[@class='glyphicon glyphicon-remove search-box-item-clear']");
     public static final By viewDealforThisCampaign = By.xpath("(//i[@class='circled-number fa fa-users IconCustomization'])[1]");
     public static final By editDealStageStatus = By.xpath("(//span[@class='fa fa-edit IconCustomization'])[1]");
@@ -160,10 +172,6 @@ public class OpportunitiesLocators  {
     public static final By campViewDealLastPg = By.xpath("(//i[@class='fa fa-angle-double-right' and @title='Last'])[2]");
     public static final By campViewDealFirstPg = By.xpath("(//i[@class='fa fa-angle-double-left' and @title='First'])[2]");
     public static final By campViewDealDrpDwn = By.xpath("(//select[contains(@class,'form-control margin-top pointer mt')])[2]");
-//    public static final By = By.xpath("");
-//    public static final By = By.xpath("");
-//    public static final By = By.xpath("");
-//    public static final By = By.xpath("");
 //    public static final By = By.xpath("");
 //    public static final By = By.xpath("");
 

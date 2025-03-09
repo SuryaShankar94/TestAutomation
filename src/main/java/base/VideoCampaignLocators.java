@@ -10,7 +10,7 @@ public class VideoCampaignLocators {
     public static final By description = By.xpath("//textarea[@name='description']");
     public static final By fromMail = By.xpath("//select[@name='campaign.email']");
     public static final By insertMergeTags = By.xpath("//button[@class='btn btn-default button-color']");
-    public static final By mergeTagName = By.xpath("(//a[@class='custom-icon'])[3]");
+    public static final By mergeTagName = By.xpath("(//a[@class='custom-icon'])[5]");
     public static final By preHeader = By.xpath("//input[@id='preHeader']");
     public static final By notifyeMailOpen = By.xpath("(//span[@class='bootstrap-switch-handle-off bootstrap-switch-default'])[1]");
     public static final By notifyLinkOpned = By.xpath("(//span[@class='bootstrap-switch-handle-off bootstrap-switch-default'])[2]");
@@ -33,14 +33,18 @@ public class VideoCampaignLocators {
     public static final By searchClearVideoCampButton = By.xpath("//button[contains(@class,'glyphicon glyphicon-remove search-box-item-clear search-button-paddin')]");
     public static final By selectVideoRadioButton = By.xpath("(//input[@name='videoFileId'])[1]");
     public static final By sortSelecteMailTemplate = By.xpath("(//select[@id='select-dropdown'])[2]");
-    public static final By clickFilterButton = By.xpath("//i[contains(@class,'fa fa-filter cesf-xamp ng-tns-c')]");
-    public static final By applyFilter = By.xpath("//input[contains(@class,'e-dropdownbase')]");
-    public static final By selectFolderFilter = By.xpath("//option[contains(text(),'automatedvendor-Default-Folder')]");
+    public static final By clickFilterIcon = By.xpath("//i[contains(@class,'fa fa-filter cesf-xamp ng-tns-c')]");
+    public static final By selectFolder = By.xpath("//input[contains(@class,'e-dropdownbase')]");
+    public static final By selectFolderValue = By.xpath("//option[contains(text(),'automatedvendor-Default-Folder')]");
     public static final By filterClearButton = By.xpath("//button[@class='btn btn-danger']");
     public static final By filterApplyButton = By.xpath("//button[@class='btn btn-info']");
     public static final By searchSelecteMailTemplate = By.xpath("(//input[contains(@class,'form-control ng-untouched ng-pristine ng-valid') and @placeholder='Search here'])[2]");
     public static final By searchSelecteMailTemplateButton = By.xpath("(//button[@type='submit' and @class='search-box-item-click email-search'])[2]");
     public static final By selectSearchemailTemplate = By.xpath("(//img[@class='img-grid-track'])[1]");
+    public static final By editTemplate = By.xpath("(//span[contains(@class,'label-color-custmization ng-tns-') and contains(text(),'Edit')])[1]");
+    public static final By saveTemplate = By.xpath("//span[contains(text(),'SAVE')]");
+    public static final By closeTemplate = By.xpath("//a[contains(@class,'close-circle pull-right')]");
+    public static final By a = By.xpath("");
     public static final By searchCleareMailTemplate = By.xpath("//button[contains(@class,'glyphicon glyphicon-remove search-box-item-clear search-button-paddin')]");
     public static final By sendTestMailButton = By.xpath("//button[contains(@class,'button_blue bgcolor-unset pd_top0 ng-tns')]");
     public static final By entereMailAddress = By.xpath("//input[contains(@class,'form-control ng') and @placeholder='Please Enter Email Address']");
@@ -72,7 +76,7 @@ public class VideoCampaignLocators {
     public static final By saveButton = By.xpath("//span[contains(@class,'btn Btn-Green transition pos_pd-top') and contains(text(),'Save')]");
     public static final By sheduleButton = By.xpath("//span[contains(@class,'btn Btn-Green transition pos_pd-top') and contains(text(),'Schedule')]");
     public static final By sheduleLaunchTime = By.xpath("//input[@id='launchTime']");
-    public static final By sheduleDate = By.xpath("(//div[contains(@class,'flatpickr-calendar hasTime animate showTimeInput open arrow')]//div[@class='dayContainer']//span[@class='flatpickr-day '])[26]");
+    public static final By sheduleDate = By.xpath("(//div[contains(@class,'flatpickr-calendar hasTime animate ')]//div[@class='dayContainer']//span[@class='flatpickr-day '])[31]");
     public static final By sheduleCountry = By.xpath("//select[@id='countryName']");
     public static final By spamCheck = By.xpath("//span[contains(@class,'btn Btn-Green transition pos_pd') and contains(text(),'Spam')]");
     public static final By innerSpamCheck = By.xpath("//span[contains(@class,'btn btn-primary transition txt_pd-t') and contains(text(),'Spam')]");
@@ -82,16 +86,6 @@ public class VideoCampaignLocators {
     public static final By previousButton = By.xpath("//span[contains(@class,'btn Btn-Gray') and contains(text(),'Previous')]");
     public static final By sendTestMail = By.xpath("//span[contains(@class,'btn Btn-Green transition pl_4 pos_pd-top') and contains(text(),'Send Test Email')]");
 //
-//    public static final By a = By.xpath("");
-//    public static final By a = By.xpath("");
-//    public static final By a = By.xpath("");
-//    public static final By a = By.xpath("");
-//    public static final By a = By.xpath("");
-//    public static final By a = By.xpath("");
-//    public static final By a = By.xpath("");
-//    public static final By a = By.xpath("");
-//    public static final By a = By.xpath("");
-//    public static final By a = By.xpath("");
 //    public static final By a = By.xpath("");
 
 }

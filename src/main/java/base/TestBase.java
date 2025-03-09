@@ -85,7 +85,7 @@ public class TestBase extends TestSetup{
         TestSetup.scenario =scenario;
     }
 
-    @BeforeAll(order = 5)
+  /*  @BeforeAll(order = 5)
     public static void loadEmailCampLocatorsProperties()
     {
         emailCampLocatorsProperties = new Properties();
@@ -103,7 +103,7 @@ public class TestBase extends TestSetup{
                 ExtentCucumberAdapter.addTestStepLog("WARNING. Failed to take screenshot with following exception: " + ex.getMessage());
             }
         }
-    }
+    }*/
    /* @BeforeAll(order = 6)
     public static void loadOpportunitiesProperties()
     {
