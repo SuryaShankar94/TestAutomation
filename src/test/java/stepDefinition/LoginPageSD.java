@@ -1,6 +1,7 @@
 package stepDefinition;
 
 import base.TestSetup;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -34,5 +35,10 @@ public class LoginPageSD extends TestSetup {
         UserActions.wait_Sec();
         String expectedUrl = userInputProperties.getProperty("homePageURL");
         LoginPage.shouldDisplayExpectedPage(expectedUrl);
+    }
+
+    @And("User is able to logout the xamplify application")
+    public void userIsAbleToLogoutTheXamplifyApplication() {
+        LoginPage.logoutTheXamplifyApplication();
     }
 }

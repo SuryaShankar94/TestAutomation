@@ -251,4 +251,15 @@ public class OpportunitiesSD extends TestSetup
     public void userIsAbleToPerformPaginationOnCampaignDeals() {
         OpportunitiesPage.performPaginationOnCampaignDeals();
     }
+
+    @And("User is able to filter deals")
+    public void userIsAbleToFilterDeals() {
+        OpportunitiesPage.filterDeals();
+    }
+
+    @And("User is able to apply filter on leads")
+    public void userIsAbleToApplyFilterOnLeads() {
+        OpportunitiesPage.applyFilterOnLeads();
+    }
+
 }
