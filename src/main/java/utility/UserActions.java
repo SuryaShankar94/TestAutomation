@@ -1,7 +1,9 @@
 package utility;
 
+import base.EmailtoCampaignLocators;
 import base.OpportunitiesLocators;
 import base.TestSetup;
+import base.VideoCampaignLocators;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,7 +28,7 @@ public class UserActions extends TestSetup {
     public static void setValue(By locator, String input)
     {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-        UserActions.wait_Sec();
+        //.wait_Sec();
         //System.out.println("eMail Address 1"+input);
         wait.until(ExpectedConditions.elementToBeClickable(locator));
        // System.out.println("eMail Address 2"+input);
@@ -35,6 +37,8 @@ public class UserActions extends TestSetup {
         //System.out.println("eMail Address 3"+input);
         driver.findElement(locator).clear();
         driver.findElement(locator).sendKeys(input);
+        //driver.findElement(locator).sendKeys(keys.enter);
+
     }
     public static void click(By locator)
     {
@@ -222,29 +226,29 @@ public class UserActions extends TestSetup {
     public static void selectDate(By closeDate,By dealCloseDate) {
         //System.out.println("VALUE 2");
         waitForElementVisible(closeDate);
-        UserActions.click(closeDate);
-        System.out.println("VALUE 3");
-        //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-        //System.out.println("COUNT==>"+UserActions.getListOfElements(dealCloseDate).stream().count());
+        click(closeDate);
+        //System.out.println("VALUE 3");
+        //wait_Sec();wait_Sec();wait_Sec();wait_Sec();wait_Sec();
+        //System.out.println("COUNT==>"+getListOfElements(dealCloseDate).stream().count());
         waitForElementVisible(dealCloseDate);
-        List<WebElement> getCloseDates = UserActions.getListOfElements(dealCloseDate);
-        System.out.println("CLOSE DATEEEEE---->"+getCloseDates.size());
-        UserActions.wait_Sec();
+        List<WebElement> getCloseDates = getListOfElements(dealCloseDate);
+        //System.out.println("CLOSE DATEEEEE---->"+getCloseDates.size());
+        wait_Sec();
         //if(!getCloseDates.isEmpty()) {
-        if(getCloseDates.isEmpty()) {
-            UserActions.wait_Sec();
-            System.out.println("Select CLOSE DATEEEEE---->"+getCloseDates.get(0));
+        if(!getCloseDates.isEmpty()) {
+            wait_Sec();
+          //  System.out.println("Select CLOSE DATEEEEE---->"+getCloseDates.get(0));
             getCloseDates.get(0).click();
            // waitForElementVisible(locator);
         } else {
-            By locator = OpportunitiesLocators.selectNextMonth;
+            By locator = OpportunitiesLocators.selectDealNextMonth;
             waitForElementVisible(locator);
-            UserActions.click(locator);
-            List<WebElement> getCloseDates1 = UserActions.getListOfElements(dealCloseDate);
-            System.out.println("Next Month CLOSE DATEEEEE---->"+getCloseDates1.size());
-            UserActions.wait_Sec();
+            click(locator);
+            List<WebElement> getCloseDates1 = getListOfElements(dealCloseDate);
+            //System.out.println("Next Month CLOSE DATEEEEE---->"+getCloseDates1.size());
+            wait_Sec();
             if(!getCloseDates1.isEmpty()) {
-                UserActions.wait_Sec();
+                wait_Sec();
                 // System.out.println("Select CLOSE DATEEEEE---->"+getCloseDates1.get(1));
                 getCloseDates1.get(0).click();
                 //waitForElementVisible(locator);
@@ -253,33 +257,33 @@ public class UserActions extends TestSetup {
     }
 
     public static void searchLeadOrDeal(By searchDeals, By clickSearchDealIcon, String searchValue) {
-        //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-        //System.out.println("Step 0");
+        //wait_Sec();wait_Sec();wait_Sec();
+        System.out.println("Step 0");
         waitForElementVisible(searchDeals);
-        UserActions.setValue(searchDeals,searchValue);
-        //System.out.println("Step 1");
-        //UserActions.wait_Sec();UserActions.wait_Sec();
-        UserActions.click(clickSearchDealIcon);
-        //System.out.println("Step 2");
+        setValue(searchDeals,searchValue);
+        System.out.println("Step 1");
+        wait_Sec();//wait_Sec();
+        click(clickSearchDealIcon);
+        System.out.println("Step 2");
     }
 
     public static void searchValue(By searchBox, By clickSearchIcon, String searchValue) {
-       // System.out.println("Search KEY==>STEP111"+searchValue+"Search Box"+searchBox);
+        System.out.println("Search KEY==>STEP111"+searchValue+"Search Box"+searchBox);
         waitForElementVisible(searchBox);
-        //UserActions.wait_Sec();
-        UserActions.setValue(searchBox,searchValue);
-       // System.out.println("Search KEY==>STEP2");
-        UserActions.click(clickSearchIcon);
+        wait_Sec();wait_Sec();
+        setValue(searchBox,searchValue);
+        System.out.println("Search KEY==>STEP2");
+        click(clickSearchIcon);
     }
     public static void closeSearch(By clickCloseSearchButton) {
         waitForElementVisible(clickCloseSearchButton);
-        UserActions.click(clickCloseSearchButton);
+        click(clickCloseSearchButton);
     }
     public static boolean isClicked(By locator)
     {
         try {
             waitForElementVisible(locator);
-            UserActions.click(locator);
+            click(locator);
             return true;
         } catch(Exception e){
             return false;
@@ -287,24 +291,121 @@ public class UserActions extends TestSetup {
     }
 
     public static void performPagination(By nextPg, By previousPg, By lastPg, By firstPg) {
-        Boolean val = UserActions.isElementDisplayed(nextPg);
+        Boolean val = isElementDisplayed(nextPg);
         waitForElementVisible(nextPg);
         System.out.println("VALUE=>"+val);
         if(val) {
 
             System.out.println("Start");
-            UserActions.click(nextPg);
+            click(nextPg);
             System.out.println("Next");
-            UserActions.wait_Sec();UserActions.wait_Sec();
-            UserActions.click(previousPg);
+            wait_Sec();wait_Sec();
+            click(previousPg);
             System.out.println("Previous");
-            UserActions.wait_Sec();UserActions.wait_Sec();
-            UserActions.click(lastPg);
+            wait_Sec();wait_Sec();
+            click(lastPg);
             System.out.println("Last");
-            UserActions.wait_Sec();UserActions.wait_Sec();
-            UserActions.click(firstPg);
+            wait_Sec();wait_Sec();
+            click(firstPg);
             System.out.println("First");
-           // UserActions.wait_Sec();UserActions.wait_Sec();
+            wait_Sec();wait_Sec();
         }
+    }
+
+    public static void selectDate(By fromDate, By selectDate, By selectPreviousMonth, int index) {
+        waitForElementVisible(fromDate);
+        click(fromDate);
+        System.out.println("VALUE 3");
+        //wait_Sec();wait_Sec();//wait_Sec();wait_Sec();wait_Sec();
+        System.out.println("COUNT==>"+getListOfElements(selectDate).stream().count());
+        waitForElementVisible(selectDate);
+        List<WebElement> getCloseDates = getListOfElements(selectDate);
+        int count = getCloseDates.size();
+        System.out.println("CLOSE DATEEEEE---->"+count);
+        //wait_Sec();
+        if(index>0){
+            index = count-1;
+        }
+        if(count>15 || index>0) {
+            getCloseDates.get(index).click();
+        } else {
+            By locator = OpportunitiesLocators.selectPreviousMonth;
+            waitForElementVisible(locator);
+            click(locator);
+            getCloseDates = getListOfElements(selectDate);
+            count = getCloseDates.size();
+            System.out.println("CLOSE DATEEEEE---->"+count);
+            //wait_Sec();
+            if(index>0){
+                index = count-1;
+            }
+            if(!getCloseDates.isEmpty()) {
+                wait_Sec();
+                // System.out.println("Select CLOSE DATEEEEE---->"+getCloseDates1.get(1));
+                getCloseDates.get(index).click();
+                //waitForElementVisible(locator);
+            }
+        }
+
+    }
+
+
+    public static void sheduleDate(By sheduleLaunchTime, By sheduleDate, By sheduleTime) {
+        waitForElementVisible(sheduleLaunchTime);
+        System.out.println("Launch 1");
+        //wait_Sec();wait_Sec();wait_Sec();wait_Sec();
+        click(sheduleLaunchTime);
+        waitForElementVisible(sheduleDate);
+        System.out.println("Shedule Date");
+        //wait_Sec();
+        click(sheduleDate);
+        int i=6;
+        while(i>0) {
+            click(sheduleTime);
+            i--;
+        }
+        System.out.println("Launch Time");
+    }
+
+    public static void performSorting(By sortEmailTemplate) {
+        waitForElementVisible(sortEmailTemplate);
+        //scrolling(sortEmailTemplate);
+        Select dropdown = new Select(driver.findElement(sortEmailTemplate));
+        List<WebElement> drpdwn = dropdown.getOptions();
+        System.out.println(drpdwn.size());
+        int count = drpdwn.size();
+        int i = 0;
+        while(i<count) {
+            System.out.println(i);wait_Sec();
+            getDropDownSelectIndex(sortEmailTemplate,i);
+            wait_Sec();//
+            i++;
+        }
+    }
+
+    public static void handlingeMailTemplateiFrame(By frameId, By saveTemplate, By closeTemplate) {
+        driver.switchTo().frame(driver.findElement(frameId));
+        System.out.println("Entered in to Frame");
+        waitForElementVisible(saveTemplate);
+        click(saveTemplate);
+        System.out.println("Template Saved");
+        driver.switchTo().defaultContent();
+        waitForElementVisible(closeTemplate);
+        wait_Sec();
+        click(closeTemplate);
+        System.out.println("Steplate Closed");
+    }
+
+    public static void performFilterAction(By filterIcon, By selectFolder, By filterApplyButton, By filterClearButton, String folderName) {
+        click(filterIcon);
+        waitForElementVisible(selectFolder);
+        setValue(selectFolder,folderName);
+        wait_Sec();
+        driver.findElement(selectFolder).sendKeys(Keys.ENTER);
+        //wait_Sec();
+        click(filterApplyButton);
+        //wait_Sec();
+        //click(filterClearButton);
+        //wait_Sec();
     }
 }
