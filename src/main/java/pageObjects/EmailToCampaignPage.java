@@ -3,6 +3,7 @@ package pageObjects;
 import base.EmailtoCampaignLocators;
 import base.TestSetup;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import utility.UserActions;
 
 public class EmailToCampaignPage extends TestSetup{
@@ -41,7 +42,7 @@ public class EmailToCampaignPage extends TestSetup{
         if(val) {
             UserActions.click(locator);
             System.out.println("Next");
-            //UserActions.wait_Sec();
+            UserActions.wait_Sec();
             locator = EmailtoCampaignLocators.eMailTemplatePrevious;
             UserActions.waitForElementVisible(locator);
             UserActions.click(locator);
@@ -54,19 +55,16 @@ public class EmailToCampaignPage extends TestSetup{
             locator = EmailtoCampaignLocators.eMailTemplateFirst;
             UserActions.click(locator);
             System.out.println("First");
+            UserActions.wait_Sec();UserActions.wait_Sec();
             UserActions.getDropDownSelectIndex(EmailtoCampaignLocators.eMailPaginationDrpDwn,2);
+            UserActions.wait_Sec();UserActions.wait_Sec();
         }
     }
 
     public static void selectAnEmailTemplate() {
-        UserActions.getDropDownSelectIndex(EmailtoCampaignLocators.sortEmailTemplate,1);
-        UserActions.click(EmailtoCampaignLocators.filterButton);
-        //UserActions.click(EmailtoCampaignLocators.applyFilter);
-        //UserActions.click(EmailtoCampaignLocators.clickFolderFilter);
-        //UserActions.click(EmailtoCampaignLocators.selectFolder);
-        // UserActions.wait_Sec();
-        //UserActions.click(EmailtoCampaignLocators.applyFilter);
-        UserActions.click(EmailtoCampaignLocators.closeFilter);
+        UserActions.performSorting(EmailtoCampaignLocators.sortEmailTemplate);
+        String folderName = "automatedvendor-Default-Folder";
+        UserActions.performFilterAction(EmailtoCampaignLocators.filterButton,EmailtoCampaignLocators.clickFolderFilter,EmailtoCampaignLocators.applyFilter,EmailtoCampaignLocators.closeFilter,folderName);
         UserActions.wait_Sec();
         String searchKey = userInputProperties.getProperty("emailTemplateforCamp");
         //System.out.println("eMail Template Search KEY==>"+searchKey);
@@ -79,17 +77,17 @@ public class EmailToCampaignPage extends TestSetup{
             // System.out.println("Step2");
             By locator = EmailtoCampaignLocators.selecteMailTemplate;
             UserActions.waitForElementVisible(locator);
+            UserActions.wait_Sec();
             UserActions.click(locator);
-           // locator = EmailtoCampaignLocators.editTemplate;
+            System.out.println("Template Selected");
+            locator = EmailtoCampaignLocators.editTemplate;
             UserActions.waitForElementVisible(locator);
+            UserActions.wait_Sec();//UserActions.wait_Sec();
             UserActions.click(locator);
-            //locator = EmailtoCampaignLocators.saveTemplate;
-            UserActions.waitForElementVisible(locator);
-            UserActions.click(locator);
-           // locator = EmailtoCampaignLocators.closeTemplate;
-            UserActions.waitForElementVisible(locator);
-            UserActions.click(locator);
-            // System.out.println("Step3");
+            System.out.println("Template Edited");
+            UserActions.wait_Sec();//UserActions.wait_Sec();
+            By frameId = By.id("xamplify-bee-template-container__bee-plugin-frame");
+            UserActions.handlingeMailTemplateiFrame(frameId,EmailtoCampaignLocators.saveTemplate,EmailtoCampaignLocators.closeTemplate);
             UserActions.closeSearch(EmailtoCampaignLocators.searchClearButton);
         }
         UserActions.click(EmailtoCampaignLocators.sendTesteMailButton);
@@ -120,18 +118,22 @@ public class EmailToCampaignPage extends TestSetup{
             UserActions.click(EmailtoCampaignLocators.partnerGroupFirst);
             System.out.println("First");
             UserActions.wait_Sec();
-           // UserActions.getDropDownSelectIndex(EmailtoCampaignLocators.partnerPaginationDrpDwn,2);
+            UserActions.getDropDownSelectIndex(EmailtoCampaignLocators.partnerPaginationDrpDwn,2);
+            UserActions.wait_Sec(); UserActions.wait_Sec();
         }
     }
 
     public static void selectPartnerGroupToBeUsedInThisCampaign() {
-        UserActions.getDropDownSelectIndex(EmailtoCampaignLocators.partnerGroupSelectionOrder,1);
+        By locator = EmailtoCampaignLocators.partnerGroupSelectionOrder;
+        UserActions.waitForElementVisible(locator);
+        UserActions.performSorting(locator);
         String searchKey = userInputProperties.getProperty("selectPartnerGroup");
-        //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.wait_Sec();UserActions.wait_Sec();//UserActions.wait_Sec();UserActions.wait_Sec();
         if(searchKey!=null){
+            UserActions.wait_Sec();
             UserActions.searchValue(EmailtoCampaignLocators.searchPartnerGroup,EmailtoCampaignLocators.searchPartnerGroupButton,searchKey);
             UserActions.click(EmailtoCampaignLocators.selectPartnerCheckBox);
-//            System.out.println("Search KEY at partner Module==>"+searchKey);
+       //     System.out.println("Search KEY at partner Module==>"+searchKey);
 //            UserActions.wait_Sec();UserActions.wait_Sec();
 //            UserActions.click(EmailtoCampaignLocators.selctpartnerGroupPreview);
 //            UserActions.wait_Sec();UserActions.wait_Sec();
@@ -176,6 +178,7 @@ public class EmailToCampaignPage extends TestSetup{
     public static void launchEmailCampaignNow() {
         UserActions.click(EmailtoCampaignLocators.launchNow);
         UserActions.click(EmailtoCampaignLocators.launchButton);
+        UserActions.wait_Sec();
     }
 
     public static void saveEmailCampaign() {
@@ -188,10 +191,11 @@ public class EmailToCampaignPage extends TestSetup{
         //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.getDropDownSelectIndex(EmailtoCampaignLocators.sheduleCountry,3);
         UserActions.click(EmailtoCampaignLocators.sheduleLaunchTime);
-        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.click(EmailtoCampaignLocators.sheduleDate);
         System.out.println("VALUE 1");
-         UserActions.selectDate(EmailtoCampaignLocators.sheduleLaunchTime,EmailtoCampaignLocators.sheduleDate);
+        // UserActions.selectDate(EmailtoCampaignLocators.sheduleLaunchTime,EmailtoCampaignLocators.sheduleDate);
+        //UserActions.sheduleDate(EmailtoCampaignLocators.sheduleLaunchTime,EmailtoCampaignLocators.sheduleDate,EmailtoCampaignLocators.sheduleTime);
         UserActions.click(EmailtoCampaignLocators.sheduleButton);
     }
 }

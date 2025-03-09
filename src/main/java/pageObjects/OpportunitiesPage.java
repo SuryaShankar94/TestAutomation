@@ -5,6 +5,7 @@ import base.OpportunitiesLocators;
 import base.TestSetup;
 import com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import utility.UserActions;
 
@@ -430,12 +431,14 @@ public class OpportunitiesPage extends TestSetup{
 
     public static void editDealStageIcon() {
         String searchValue = userInputProperties.getProperty("dealSearchKey");
+        UserActions.wait_Sec();
         UserActions.searchLeadOrDeal(OpportunitiesLocators.searchDeals,OpportunitiesLocators.clickSearchDealIcon, searchValue);
         By locator = OpportunitiesLocators.editDealStage;
         UserActions.waitForElementVisible(locator);
+        UserActions.wait_Sec();
         UserActions.click(locator);
         UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-        UserActions.getDropDownSelectIndex(OpportunitiesLocators.dealStageValue,3);
+        UserActions.getDropDownSelectIndex(OpportunitiesLocators.dealStageValue,2);
         UserActions.setValue(OpportunitiesLocators.dealStageComment,"Stage value updated from the drop down");
         UserActions.click(OpportunitiesLocators.dealStageUpdateBtn);
     }
@@ -585,11 +588,11 @@ public class OpportunitiesPage extends TestSetup{
     public static void viewDealForThisCampaign() {
         String searchValue = userInputProperties.getProperty("campLeadNameSearch");
         //UserActions.wait_Sec();UserActions.wait_Sec();
-        System.out.println("Step 0");
+        System.out.println("Step 0 "+searchValue);
         By locator = OpportunitiesLocators.campViewDealSearchBox;
         UserActions.waitForElementVisible(locator);
-        //UserActions.scrolling(locator);
-        UserActions.searchLeadOrDeal(locator,OpportunitiesLocators.campViewDealSearchIcon, searchValue);
+        UserActions.scrolling(locator);
+        UserActions.searchLeadOrDeal(locator,OpportunitiesLocators.campViewDealSearchIcon,searchValue);
         System.out.println("Step 1");
         //UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.click(OpportunitiesLocators.viewDealforThisCampaign);
@@ -636,8 +639,13 @@ public class OpportunitiesPage extends TestSetup{
             UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
             UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
             locator = OpportunitiesLocators.dealPipeline;
-            if(UserActions.isElementDisplayed(locator))
+            Boolean val = UserActions.isElementDisplayed(locator);
+            System.out.println("Value:::>"+val);
+            if(!val) {
                 UserActions.getDropDownSelectIndex(locator,1);
+                System.out.println("VALUE"+val);
+            }
+
             UserActions.getDropDownSelectIndex(OpportunitiesLocators.campViewEditDealStage,1);
             locator = OpportunitiesLocators.campViewEditAddComment;
             UserActions.setValue(locator,"Stage value and comment also updated from the drop down");
@@ -685,8 +693,8 @@ public class OpportunitiesPage extends TestSetup{
         UserActions.getDropDownSelectIndex(locator,3);
         UserActions.setValue(OpportunitiesLocators.dealStageComment,"Stage value updated from the drop down");
         UserActions.click(OpportunitiesLocators.dealStageUpdateBtn);
-        UserActions.scrolling(By.id("permhref"));
-        if(UserActions.isElementDisplayed(OpportunitiesLocators.closeViewDeal))
+        //UserActions.scrolling(By.id("permhref"));
+        if(!UserActions.isElementDisplayed(OpportunitiesLocators.closeViewDeal))
             UserActions.click(OpportunitiesLocators.closeViewDeal);
         else
             UserActions.click(By.id("permhref"));
@@ -699,6 +707,8 @@ public class OpportunitiesPage extends TestSetup{
         By previousPg = OpportunitiesLocators.campViewDealPreviousPg;
         UserActions.performPagination(nextPg,previousPg,lastPg,firstPg);
         UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.waitForElementVisible(OpportunitiesLocators.campViewDealDrpDwn);
+        UserActions.scrolling(OpportunitiesLocators.campViewDealDrpDwn);
         UserActions.getDropDownSelectIndex(OpportunitiesLocators.campViewDealDrpDwn,2);
         //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
 
@@ -710,19 +720,25 @@ public class OpportunitiesPage extends TestSetup{
         By selectDate = OpportunitiesLocators.selectDealFromDate;
         By selectPreviousMonth = OpportunitiesLocators.selectPreviousMonth;
         By fromDate = OpportunitiesLocators.selecttoDate;
+        UserActions.waitForElementVisible(fromDate);
         UserActions.selectDate(fromDate,selectDate,selectPreviousMonth,1); //to date
         fromDate = OpportunitiesLocators.selectFromDate;
         UserActions.selectDate(fromDate,selectDate,selectPreviousMonth,0); // from date
-        //UserActions.click(OpportunitiesLocators.dealAddedby);
-       //        UserActions.getDropDownSelectIndex(OpportunitiesLocators.dealAddedby_temp,1);
-        //UserActions.getMouserOverElement(OpportunitiesLocators.dealAddedby_temp);
-        //UserActions.click(OpportunitiesLocators.dealAddedby_temp);
-       // UserActions.setValue(OpportunitiesLocators.dealAddedby_temp,"automated_partner@analytify.com - ( Automated Partner )");
+        UserActions.click(OpportunitiesLocators.dealAddedby);
+        UserActions.wait_Sec();
+        UserActions.click(OpportunitiesLocators.dealAddedby_temp);
+        UserActions.setValue(OpportunitiesLocators.dealAddedby_temp,"automated_partner@analytify.com - ( Automated Partner )");
+        //driver.findElement(OpportunitiesLocators.dealAddedby).click();
+        //driver.findElement(OpportunitiesLocators.dealAddedby).sendKeys("automated_partner@analytify.com - ( Automated Partner )");
+        //UserActions.wait_Sec();UserActions.wait_Sec();
+        //driver.findElement(OpportunitiesLocators.dealAddedby).sendKeys(Keys.ENTER);
+        driver.findElement(OpportunitiesLocators.dealAddedby_temp).sendKeys(Keys.ENTER);
+        //driver.findElement(OpportunitiesLocators.dealAddedby).
 
         //UserActions.setValue(OpportunitiesLocators.dealAddedfor,"automatedVendor");
         //UserActions.getDropDownSelectIndex(OpportunitiesLocators.dealStatus,2);
         UserActions.click(OpportunitiesLocators.applyDealFilter);
-        //UserActions.click(OpportunitiesLocators.cancelDealFilter);
+       // UserActions.click(OpportunitiesLocators.cancelDealFilter);
     }
 
     public static void applyFilterOnLeads() {
