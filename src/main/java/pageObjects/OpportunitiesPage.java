@@ -724,21 +724,43 @@ public class OpportunitiesPage extends TestSetup{
         UserActions.selectDate(fromDate,selectDate,selectPreviousMonth,1); //to date
         fromDate = OpportunitiesLocators.selectFromDate;
         UserActions.selectDate(fromDate,selectDate,selectPreviousMonth,0); // from date
-        UserActions.click(OpportunitiesLocators.dealAddedby);
+        /// //////////////////////////////////
+//        String folderName = "automatedvendor-Default-Folder";
+//        UserActions.performFilterAction(EmailtoCampaignLocators.filterButton,EmailtoCampaignLocators.clickFolderFilter,EmailtoCampaignLocators.applyFilter,EmailtoCampaignLocators.closeFilter,folderName);
+
+        /// //////////////////////////////////
+        //UserActions.click(OpportunitiesLocators.dealAddedby);
         UserActions.wait_Sec();
-        UserActions.click(OpportunitiesLocators.dealAddedby_temp);
-        UserActions.setValue(OpportunitiesLocators.dealAddedby_temp,"automated_partner@analytify.com - ( Automated Partner )");
+        //UserActions.click(OpportunitiesLocators.dealAddedby_temp);
+        String selectAddedByValue = "automated_partner@analytify.com - ( Automated Partner )";
+        UserActions.filterDropDownValues(OpportunitiesLocators.dealAddedby,OpportunitiesLocators.dealAddedByInput,selectAddedByValue);
+        System.out.println("Done 1");
+        String selectAddedForValue = "automatedVendor";
+        //UserActions.click(OpportunitiesLocators.dealAddedfor);
+        UserActions.wait_Sec();
+        UserActions.filterDropDownValues(OpportunitiesLocators.dealAddedfor,OpportunitiesLocators.dealAddedForInput, selectAddedForValue);
+        System.out.println("Done 2");
+        String selectDealStatus = "Opened";
+        //UserActions.click(OpportunitiesLocators.dealStatus);
+        UserActions.wait_Sec();
+        System.out.println("Done 3");
+        //UserActions.waitForElementVisible(OpportunitiesLocators.dealStatus);
+        //UserActions.filterDropDownValues(OpportunitiesLocators.dealStatus,OpportunitiesLocators.dealStatusInput, selectDealStatus);
+        System.out.println("Done 4");
+        //UserActions.setValue(OpportunitiesLocators.dealAddedby_temp,"automated_partner@analytify.com - ( Automated Partner )");
         //driver.findElement(OpportunitiesLocators.dealAddedby).click();
         //driver.findElement(OpportunitiesLocators.dealAddedby).sendKeys("automated_partner@analytify.com - ( Automated Partner )");
         //UserActions.wait_Sec();UserActions.wait_Sec();
         //driver.findElement(OpportunitiesLocators.dealAddedby).sendKeys(Keys.ENTER);
-        driver.findElement(OpportunitiesLocators.dealAddedby_temp).sendKeys(Keys.ENTER);
+        //driver.findElement(OpportunitiesLocators.dealAddedby_temp).sendKeys(Keys.ENTER);
         //driver.findElement(OpportunitiesLocators.dealAddedby).
 
         //UserActions.setValue(OpportunitiesLocators.dealAddedfor,"automatedVendor");
         //UserActions.getDropDownSelectIndex(OpportunitiesLocators.dealStatus,2);
+        /// ////////////////////////////////////////////////////////////////////////////////////
         UserActions.click(OpportunitiesLocators.applyDealFilter);
        // UserActions.click(OpportunitiesLocators.cancelDealFilter);
+        UserActions.wait_Sec();
     }
 
     public static void applyFilterOnLeads() {

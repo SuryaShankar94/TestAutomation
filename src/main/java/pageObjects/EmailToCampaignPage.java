@@ -2,6 +2,7 @@ package pageObjects;
 
 import base.EmailtoCampaignLocators;
 import base.TestSetup;
+import base.VideoCampaignLocators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import utility.UserActions;
@@ -189,13 +190,15 @@ public class EmailToCampaignPage extends TestSetup{
     public static void scheduleEmailCampaign() {
         UserActions.click(EmailtoCampaignLocators.launchShedule);
         //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-        UserActions.getDropDownSelectIndex(EmailtoCampaignLocators.sheduleCountry,3);
-        UserActions.click(EmailtoCampaignLocators.sheduleLaunchTime);
+        UserActions.getDropDownSelectIndex(EmailtoCampaignLocators.scheduleCountry,3);
+        //UserActions.click(EmailtoCampaignLocators.scheduleLaunchTime);
         //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-        UserActions.click(EmailtoCampaignLocators.sheduleDate);
-        System.out.println("VALUE 1");
+//        UserActions.scheduleDate(VideoCampaignLocators.scheduleLaunchTime,VideoCampaignLocators.scheduleToday,VideoCampaignLocators.scheduleHours,VideoCampaignLocators.scheduleMins,VideoCampaignLocators.scheduleButton);
+        UserActions.scheduleDate(EmailtoCampaignLocators.scheduleLaunchTime,EmailtoCampaignLocators.scheduleDate,EmailtoCampaignLocators.scheduleHours,EmailtoCampaignLocators.scheduleMins,EmailtoCampaignLocators.scheduleButton);
+       // UserActions.click(EmailtoCampaignLocators.scheduleDate);
+      //  System.out.println("VALUE 1");
         // UserActions.selectDate(EmailtoCampaignLocators.sheduleLaunchTime,EmailtoCampaignLocators.sheduleDate);
         //UserActions.sheduleDate(EmailtoCampaignLocators.sheduleLaunchTime,EmailtoCampaignLocators.sheduleDate,EmailtoCampaignLocators.sheduleTime);
-        UserActions.click(EmailtoCampaignLocators.sheduleButton);
+    //    UserActions.click(EmailtoCampaignLocators.scheduleButton);
     }
 }
