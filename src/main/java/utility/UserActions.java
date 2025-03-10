@@ -1,9 +1,7 @@
 package utility;
 
-import base.EmailtoCampaignLocators;
 import base.OpportunitiesLocators;
 import base.TestSetup;
-import base.VideoCampaignLocators;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -28,14 +26,15 @@ public class UserActions extends TestSetup {
     public static void setValue(By locator, String input)
     {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-        //.wait_Sec();
-        //System.out.println("eMail Address 1"+input);
+        wait_Sec();
+        System.out.println("Enter"+input);
         wait.until(ExpectedConditions.elementToBeClickable(locator));
-       // System.out.println("eMail Address 2"+input);
+        System.out.println("Wait"+input);
         waitForElementVisible(locator);
         driver.findElement(locator).click();
-        //System.out.println("eMail Address 3"+input);
+        System.out.println("Click"+input);
         driver.findElement(locator).clear();
+        System.out.println("Clear"+input);
         driver.findElement(locator).sendKeys(input);
         //driver.findElement(locator).sendKeys(keys.enter);
 
@@ -407,5 +406,34 @@ public class UserActions extends TestSetup {
         //wait_Sec();
         //click(filterClearButton);
         //wait_Sec();
+    }
+
+    public static void scheduleDate(By scheduleLaunchTime, By scheduleToday, By scheduleHours, By scheduleMins, By scheduleBtn) {
+        click(scheduleLaunchTime);
+        waitForElementVisible(scheduleToday);
+        System.out.println("Shedule Date");
+        wait_Sec();wait_Sec();
+        click(scheduleToday);
+        waitForElementVisible(scheduleHours);
+        wait_Sec();wait_Sec();
+        driver.findElement(scheduleHours).sendKeys("11");
+        waitForElementVisible(scheduleMins);
+        driver.findElement(scheduleMins).clear();
+        driver.findElement(scheduleMins).sendKeys("58");
+        driver.findElement(scheduleMins).sendKeys(Keys.ENTER);
+        click(scheduleBtn);
+        System.out.println("Launch Time");
+    }
+
+    public static void filterDropDownValues(By dealAddedby, By dealAddedForInput, String selectAddedValue) {
+        click(dealAddedby);
+        System.out.println("Step 1 Added");
+        waitForElementVisible(dealAddedForInput);
+        driver.findElement(dealAddedForInput).sendKeys(selectAddedValue);
+        System.out.println("Step 2 Added");
+        wait_Sec();
+        driver.findElement(dealAddedby).sendKeys(Keys.ENTER);
+        System.out.println("Step 3 Added");
+        wait_Sec();
     }
 }
