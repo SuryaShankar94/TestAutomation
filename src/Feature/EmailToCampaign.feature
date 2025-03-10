@@ -3,7 +3,7 @@ Feature: Partner
     Given User launches xamplify Application URL
     When User enters valid username and valid password
     Then Should display xamplify application home page
-  @Test_EmailToCampaign @all # @Functional @Smoke @Regression @toCampaign
+  @Test_EmailToCampaign @all @Functional @Smoke @Regression @toCampaign
   Scenario: Launch Email Campaign Now
     When Verify user is able to mouserHover on Campaign
     Then User is able to click creating campaign
