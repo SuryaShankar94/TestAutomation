@@ -74,9 +74,12 @@ public class VideoCampaignLocators {
     public static final By launchShedule = By.xpath("//input[contains(@id,'launch-option') and @value='SCHEDULE']");
     public static final By eMailAddress = By.xpath("(//input[contains(@class,'form-control ng-untouched ng-pristine ng-valid')])[8]");
     public static final By saveButton = By.xpath("//span[contains(@class,'btn Btn-Green transition pos_pd-top') and contains(text(),'Save')]");
-    public static final By sheduleButton = By.xpath("//span[contains(@class,'btn Btn-Green transition pos_pd-top') and contains(text(),'Schedule')]");
-    public static final By sheduleLaunchTime = By.xpath("//input[@id='launchTime']");
-    public static final By sheduleDate = By.xpath("(//div[contains(@class,'flatpickr-calendar hasTime animate ')]//div[@class='dayContainer']//span[@class='flatpickr-day '])[31]");
+    public static final By scheduleButton = By.xpath("//span[contains(@class,'btn Btn-Green transition pos_pd-top') and contains(text(),'Schedule')]");
+    public static final By scheduleLaunchTime = By.xpath("//input[@id='launchTime']");
+    //public static final By scheduleDate = By.xpath("(//div[contains(@class,'flatpickr-calendar hasTime animate ')]//div[@class='dayContainer']//span[@class='flatpickr-day '])[31]");
+    public static final By scheduleToday = By.xpath("(// div[contains(@class,'flatpickr-calendar hasTime animate ')]// div[@class='dayContainer']// span[@class='flatpickr-day today'])");
+    public static final By scheduleHours = By.xpath("(//div[@class='flatpickr-time']//div[@class='numInputWrapper']//input[@class='numInput flatpickr-hour'])[3]");
+    public static final By scheduleMins = By.xpath("(//div[@class='flatpickr-time']//div[@class='numInputWrapper']//input[@class='numInput flatpickr-minute'])[3]");
     public static final By sheduleCountry = By.xpath("//select[@id='countryName']");
     public static final By spamCheck = By.xpath("//span[contains(@class,'btn Btn-Green transition pos_pd') and contains(text(),'Spam')]");
     public static final By innerSpamCheck = By.xpath("//span[contains(@class,'btn btn-primary transition txt_pd-t') and contains(text(),'Spam')]");

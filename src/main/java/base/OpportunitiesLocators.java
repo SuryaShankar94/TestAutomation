@@ -135,10 +135,14 @@ public class OpportunitiesLocators  {
     public static final By selectDealFromDate = By.xpath("//div[contains(@class,'flatpickr-calendar animate ')]//div[@class='dayContainer']//span[@class='flatpickr-day ']");
     //public static final By selectDealToDate = By.xpath("");
     public static final By dealAddedby = By.xpath("(//ejs-dropdownlist[@id='ddlelement'])[1]");
-    public static final By dealAddedby_temp = By.xpath("(//span[@class='e-input-group e-control-wrapper e-ddl e-lib e-keyboard'])[1]");
-    public static final By dealAddedfor = By.xpath("(//ejs-dropdownlist[@id='ddlelement'])[2]");
-    //public static final By dealStatus = By.xpath("(//ejs-dropdownlist[@id='ddlelement'])[3]");
-    public static final By dealStatus = By.xpath("(//select[@id='ddlelement_hidden']");
+    public static final By dealStatusSelect = By.xpath("(//span[@class='e-input-group e-control-wrapper e-ddl e-lib e-keyboard'])");
+    public static final By dealAddedSelect = By.xpath("");
+    public static final By dealAddedfor = By.xpath("(//ejs-dropdownlist[@id='ddlelement'])[3]");
+    public static final By dealAddedForSelect = By.xpath("(//ejs-dropdownlist[@id='ddlelement'])[3]");
+    public static final By dealAddedByInput = By.xpath("(//input[@class='e-input'])[1]");
+    public static final By dealAddedForInput = By.xpath("(//input[@class='e-input'])[3]");
+    public static final By dealStatusInput = By.xpath("(//input[@class='e-input'])[2]");
+    public static final By dealStatus = By.xpath("(//select[@id='ddlelement_hidden'])[2]");
     public static final By applyDealFilter = By.xpath("//span[contains(@class,'btn Btn-Green transition txt_pd') and contains(text(),'Filter')]");
     public static final By cancelDealFilter = By.xpath("//button[@class='close-circle']");
     public static final By viewLeadsfortheseCamp = By.xpath("(//i[@class='circled-number fa fa-users IconCustomization'])[1]");
