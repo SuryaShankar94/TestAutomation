@@ -2,7 +2,6 @@ package pageObjects;
 
 import base.EmailtoCampaignLocators;
 import base.TestSetup;
-import base.VideoCampaignLocators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import utility.UserActions;
@@ -129,7 +128,7 @@ public class EmailToCampaignPage extends TestSetup{
         UserActions.waitForElementVisible(locator);
         UserActions.performSorting(locator);
         String searchKey = userInputProperties.getProperty("selectPartnerGroup");
-        UserActions.wait_Sec();UserActions.wait_Sec();//UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
         if(searchKey!=null){
             UserActions.wait_Sec();
             UserActions.searchValue(EmailtoCampaignLocators.searchPartnerGroup,EmailtoCampaignLocators.searchPartnerGroupButton,searchKey);

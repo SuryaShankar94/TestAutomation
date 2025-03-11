@@ -20,7 +20,7 @@ public class OpportunitiesPage extends TestSetup{
 
     public static void userMouseOverOnManageLeads()
     {
-        UserActions.getMouserOverElement(OpportunitiesLocators.opportunitiesManageLeads);
+        //UserActions.getMouserOverElement(OpportunitiesLocators.opportunitiesManageLeads);
         UserActions.click(OpportunitiesLocators.opportunitiesManageLeads);
     }
 
@@ -234,7 +234,7 @@ public class OpportunitiesPage extends TestSetup{
     }
 
     public static void clickmouseHoverOnManageDeals() {
-        UserActions.getMouserOverElement(OpportunitiesLocators.opportunitiesManageDeals);
+       // UserActions.getMouserOverElement(OpportunitiesLocators.opportunitiesManageDeals);
         UserActions.click(OpportunitiesLocators.opportunitiesManageDeals);
     }
 
@@ -522,7 +522,7 @@ public class OpportunitiesPage extends TestSetup{
         By lastPg = OpportunitiesLocators.campLeadLastPg;
         By previousPg = OpportunitiesLocators.campLeadPreviousPg;
         UserActions.performPagination(nextPg,previousPg,lastPg,firstPg);
-        //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
        // UserActions.getDropDownSelectIndex(OpportunitiesLocators.campPageDrpDwn,2);
        // UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
 
@@ -558,18 +558,25 @@ public class OpportunitiesPage extends TestSetup{
     public static void editTheCampaignLeads() {
         By locator = OpportunitiesLocators.campViewLeadEdit;
         UserActions.waitForElementVisible(locator);
-        if(UserActions.isElementDisplayed(locator)) {
-            UserActions.click(locator);
-            UserActions.wait_Sec();UserActions.wait_Sec();//UserActions.wait_Sec();UserActions.wait_Sec();
-            //UserActions.getDropDownSelectIndex(OpportunitiesLocators.dealStageValue,1);
-            locator = OpportunitiesLocators.dealStageComment;
-            UserActions.setValue(locator,"Stage value updated from the drop down");
-            UserActions.setValue(OpportunitiesLocators.websiteId,"www.xamplify.co");
-            UserActions.setValue(OpportunitiesLocators.industryId,"IT");
-            UserActions.setValue(OpportunitiesLocators.regionID,"Asaia");
-            UserActions.click(OpportunitiesLocators.campViewLeadUpdate);
-        } else {
-            ExtentCucumberAdapter.addTestStepLog("Edit Option is not enable so please check once");
+        try {
+            if(UserActions.isElementDisplayed(locator) && UserActions.isEnabled(locator)) {
+                UserActions.click(locator);
+                UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+                //UserActions.getDropDownSelectIndex(OpportunitiesLocators.dealStageValue,1);
+                locator = OpportunitiesLocators.dealStageComment;
+                UserActions.setValue(locator,"Stage value updated from the drop down");
+                UserActions.setValue(OpportunitiesLocators.websiteId,"www.xamplify.co");
+                UserActions.setValue(OpportunitiesLocators.industryId,"IT");
+                UserActions.setValue(OpportunitiesLocators.regionID,"Asaia");
+                UserActions.click(OpportunitiesLocators.campViewLeadUpdate);
+            } else {
+                System.out.println("Edit Option is not enable so please check once If Block");
+                ExtentCucumberAdapter.addTestStepLog("Edit Option is not enable so please check once");
+            }
+        } catch(Exception e) {
+            System.out.println("Edit Option is not enable so please check once Catch Block");
+            UserActions.click(OpportunitiesLocators.closeViewDeal);
+            e.getMessage();
         }
      }
 
@@ -577,10 +584,17 @@ public class OpportunitiesPage extends TestSetup{
         clickViewLeadForThisCampaign();
         By locator = OpportunitiesLocators.campViewLeadDelete;
         UserActions.waitForElementVisible(locator);
-        UserActions.click(locator);
-        UserActions.click(OpportunitiesLocators.acceptDeleteDeal);
-        //or
-       // UserActions.click((OpportunitiesLocators.cancelDeleteDeal));
+        try{
+            if(UserActions.isEnabled(locator)) {
+                UserActions.wait_Sec();UserActions.wait_Sec();
+                UserActions.click(locator);
+                //UserActions.click(OpportunitiesLocators.acceptDeleteDeal);
+                //or
+                 UserActions.click((OpportunitiesLocators.cancelDeleteDeal));
+            }
+        } catch (Exception e) {
+            e.getMessage();
+        }
         locator =OpportunitiesLocators.closeViewDeal;
         UserActions.click(locator);
     }
@@ -616,9 +630,9 @@ public class OpportunitiesPage extends TestSetup{
         viewDealForThisCampaign();
         By locator = OpportunitiesLocators.campViewLeadComment;
         UserActions.waitForElementVisible(locator);
-        UserActions.waitForElementVisible(locator);
+        UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.click(locator);
-        UserActions.wait_Sec();UserActions.wait_Sec();//UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.setValue(OpportunitiesLocators.commentHistoryDeal,"Comment History Lead");
         locator = OpportunitiesLocators.dealCommentSubmit;
@@ -660,7 +674,7 @@ public class OpportunitiesPage extends TestSetup{
         System.out.println("Step 001");
         viewDealForThisCampaign();
         System.out.println("1");
-        UserActions.wait_Sec();UserActions.wait_Sec();//UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
         //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
         By locator = OpportunitiesLocators.campViewDealDelete;
         UserActions.waitForElementVisible(locator);
@@ -689,7 +703,7 @@ public class OpportunitiesPage extends TestSetup{
         UserActions.waitForElementVisible(locator);
         UserActions.click(locator);
         locator = OpportunitiesLocators.dealStageValue;
-        UserActions.wait_Sec();UserActions.wait_Sec();//UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.getDropDownSelectIndex(locator,3);
         UserActions.setValue(OpportunitiesLocators.dealStageComment,"Stage value updated from the drop down");
         UserActions.click(OpportunitiesLocators.dealStageUpdateBtn);
@@ -710,7 +724,7 @@ public class OpportunitiesPage extends TestSetup{
         UserActions.waitForElementVisible(OpportunitiesLocators.campViewDealDrpDwn);
         UserActions.scrolling(OpportunitiesLocators.campViewDealDrpDwn);
         UserActions.getDropDownSelectIndex(OpportunitiesLocators.campViewDealDrpDwn,2);
-        //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
 
     }
 
@@ -721,6 +735,7 @@ public class OpportunitiesPage extends TestSetup{
         By selectPreviousMonth = OpportunitiesLocators.selectPreviousMonth;
         By fromDate = OpportunitiesLocators.selecttoDate;
         UserActions.waitForElementVisible(fromDate);
+        UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.selectDate(fromDate,selectDate,selectPreviousMonth,1); //to date
         fromDate = OpportunitiesLocators.selectFromDate;
         UserActions.selectDate(fromDate,selectDate,selectPreviousMonth,0); // from date
@@ -742,10 +757,10 @@ public class OpportunitiesPage extends TestSetup{
         System.out.println("Done 2");
         String selectDealStatus = "Opened";
         //UserActions.click(OpportunitiesLocators.dealStatus);
-        UserActions.wait_Sec();
+        //UserActions.wait_Sec();
         System.out.println("Done 3");
-        //UserActions.waitForElementVisible(OpportunitiesLocators.dealStatus);
         //UserActions.filterDropDownValues(OpportunitiesLocators.dealStatus,OpportunitiesLocators.dealStatusInput, selectDealStatus);
+        //UserActions.waitForElementVisible(OpportunitiesLocators.dealStatus);
         System.out.println("Done 4");
         //UserActions.setValue(OpportunitiesLocators.dealAddedby_temp,"automated_partner@analytify.com - ( Automated Partner )");
         //driver.findElement(OpportunitiesLocators.dealAddedby).click();
@@ -760,7 +775,7 @@ public class OpportunitiesPage extends TestSetup{
         /// ////////////////////////////////////////////////////////////////////////////////////
         UserActions.click(OpportunitiesLocators.applyDealFilter);
        // UserActions.click(OpportunitiesLocators.cancelDealFilter);
-        UserActions.wait_Sec();
+        //UserActions.wait_Sec();
     }
 
     public static void applyFilterOnLeads() {

@@ -200,7 +200,8 @@ public class VideoToCampaignPage extends TestSetup {
 
     public static void selectPartnerGroup() {
         //UserActions.wait_Sec();
-        UserActions.getDropDownSelectIndex(VideoCampaignLocators.partnerGroupSelectionOrder,1);
+        UserActions.performSorting(VideoCampaignLocators.partnerGroupSelectionOrder);
+        //UserActions.getDropDownSelectIndex(VideoCampaignLocators.partnerGroupSelectionOrder,1);
         String searchKey = userInputProperties.getProperty("selectPartnerGroup");
        // UserActions.wait_Sec();
         if(searchKey!=null){
