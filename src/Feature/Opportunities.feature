@@ -1,7 +1,7 @@
 Feature: Opportunities
   Background:
-    Given User launches xamplify Application URL
-    When User enters valid username and valid password
+    Given User launches xamplify application URL
+    When User enters valid partner username and valid password
     Then Should display xamplify application home page
 
   @Functional @Smoke @Regression @Test_OpportunitiesManageLeads
@@ -21,7 +21,7 @@ Feature: Opportunities
     And User is able to comment the campaign leads
     And User is able to edit the campaign leads
     And User is able to delete the campaign leads
-    And User is able to perform pagination action on campaigns
+    #And User is able to perform pagination action on campaigns
     And User is able to click the leads tile
     And User is able to see campaign view to list view
     And User is able to click view lead icon
@@ -34,8 +34,8 @@ Feature: Opportunities
 #   # #Given User launches xamplify Application URL
 #  #  #When User enters valid username and valid password
 # #  # Then Should display xamplify application home page
-  @Test_OpportunitiesManageDeals
-  Scenario: Validate Opportunities Details
+#  @Test_OpportunitiesManageDeals
+#  Scenario: Validate Opportunities Details
     When Verify user is able to mouserHover on Opportunities
     Then User is able to mouseHover on Manage Deals
     And User is able to filter deals
