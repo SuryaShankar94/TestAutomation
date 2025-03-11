@@ -154,6 +154,7 @@ public class OpportunitiesLocators  {
     public static final By campLeadLastPg = By.xpath("(//i[@class='fa fa-angle-double-right' and contains(@title,'Last')])[2]");
     public static final By campLeadFirstPg = By.xpath("(//i[@class='fa fa-angle-double-left'])[2]");
     public static final By campViewLeadEdit = By.xpath("(//i[contains(@class,'fa fa-edit mr5 IconCustomization')])[1]");
+    //public static final By campViewLeadEdit = By.xpath("(//a[@id='lead'])[2]");
     public static final By campViewLeadPreview = By.xpath("(//i[@class='fa fa-eye mr5 IconCustomization'])[1]");
     public static final By campViewLeadComment = By.xpath("(//i[@class='fa fa-comments IconCustomization'])[1]");
     public static final By campViewLeadDelete = By.xpath("(//i[@class='fa fa-trash-o trashIconCustomization'])[1]");
