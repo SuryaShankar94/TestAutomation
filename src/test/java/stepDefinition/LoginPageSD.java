@@ -11,7 +11,7 @@ import utility.UserActions;
 
 public class LoginPageSD extends TestSetup {
 
-    @Given("User launches xamplify Application URL")
+    @Given("User launches xamplify application URL")
     public void userLaunchesApplicationURL()
     {
        try {
@@ -40,5 +40,12 @@ public class LoginPageSD extends TestSetup {
     @And("User is able to logout the xamplify application")
     public void userIsAbleToLogoutTheXamplifyApplication() {
         LoginPage.logoutTheXamplifyApplication();
+    }
+
+    @When("User enters valid partner username and valid password")
+    public void userEntersValidPartnerUsernameAndValidPassword() {
+        userName = userInputProperties.getProperty("p_userName");
+        password = userInputProperties.getProperty("p_password");
+        LoginPage.enterUserNameAndPassword(userName,password);
     }
 }
