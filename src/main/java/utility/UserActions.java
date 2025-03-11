@@ -27,14 +27,14 @@ public class UserActions extends TestSetup {
     {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         wait_Sec();
-        System.out.println("Enter"+input);
+        //System.out.println("Enter"+input);
         wait.until(ExpectedConditions.elementToBeClickable(locator));
-        System.out.println("Wait"+input);
+        //System.out.println("Wait"+input);
         waitForElementVisible(locator);
         driver.findElement(locator).click();
-        System.out.println("Click"+input);
+       // System.out.println("Click"+input);
         driver.findElement(locator).clear();
-        System.out.println("Clear"+input);
+        //System.out.println("Clear"+input);
         driver.findElement(locator).sendKeys(input);
         //driver.findElement(locator).sendKeys(keys.enter);
 
@@ -259,9 +259,10 @@ public class UserActions extends TestSetup {
         //wait_Sec();wait_Sec();wait_Sec();
         System.out.println("Step 0");
         waitForElementVisible(searchDeals);
+        wait_Sec();
         setValue(searchDeals,searchValue);
         System.out.println("Step 1");
-        wait_Sec();//wait_Sec();
+        wait_Sec();wait_Sec();
         click(clickSearchDealIcon);
         System.out.println("Step 2");
     }
@@ -290,10 +291,10 @@ public class UserActions extends TestSetup {
     }
 
     public static void performPagination(By nextPg, By previousPg, By lastPg, By firstPg) {
-        Boolean val = isElementDisplayed(nextPg);
+        Boolean val = isClicked(nextPg);
         waitForElementVisible(nextPg);
         System.out.println("VALUE=>"+val);
-        if(val) {
+        if(isElementDisplayed(nextPg) && isClicked(nextPg)) {
 
             System.out.println("Start");
             click(nextPg);
@@ -313,9 +314,9 @@ public class UserActions extends TestSetup {
 
     public static void selectDate(By fromDate, By selectDate, By selectPreviousMonth, int index) {
         waitForElementVisible(fromDate);
+        wait_Sec();wait_Sec();
         click(fromDate);
         System.out.println("VALUE 3");
-        //wait_Sec();wait_Sec();//wait_Sec();wait_Sec();wait_Sec();
         System.out.println("COUNT==>"+getListOfElements(selectDate).stream().count());
         waitForElementVisible(selectDate);
         List<WebElement> getCloseDates = getListOfElements(selectDate);
@@ -330,6 +331,7 @@ public class UserActions extends TestSetup {
         } else {
             By locator = OpportunitiesLocators.selectPreviousMonth;
             waitForElementVisible(locator);
+            wait_Sec();wait_Sec();wait_Sec();
             click(locator);
             getCloseDates = getListOfElements(selectDate);
             count = getCloseDates.size();
@@ -339,7 +341,7 @@ public class UserActions extends TestSetup {
                 index = count-1;
             }
             if(!getCloseDates.isEmpty()) {
-                wait_Sec();
+                wait_Sec();wait_Sec();wait_Sec();
                 // System.out.println("Select CLOSE DATEEEEE---->"+getCloseDates1.get(1));
                 getCloseDates.get(index).click();
                 //waitForElementVisible(locator);
@@ -431,9 +433,22 @@ public class UserActions extends TestSetup {
         waitForElementVisible(dealAddedForInput);
         driver.findElement(dealAddedForInput).sendKeys(selectAddedValue);
         System.out.println("Step 2 Added");
-        wait_Sec();
+        //wait_Sec();
         driver.findElement(dealAddedby).sendKeys(Keys.ENTER);
         System.out.println("Step 3 Added");
-        wait_Sec();
+        //wait_Sec();
+    }
+
+    public static boolean isEnabled(By locator) {
+        try {
+             if(driver.findElement(locator).isEnabled()) {
+                 return true;
+             } else {
+                 return false;
+             }
+        } catch (Exception e) {
+           // e.getMessage();
+            return  false;
+        }
     }
 }
