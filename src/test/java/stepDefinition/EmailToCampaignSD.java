@@ -71,5 +71,4 @@ public class EmailToCampaignSD {
     public void userIsAbleToScheduleEmailCampaign() {
         EmailToCampaignPage.scheduleEmailCampaign();
     }
-
 }

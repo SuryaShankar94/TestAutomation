@@ -69,4 +69,24 @@ public class SurveyToCampaignSD {
     public void surveyTocampaignShouldSuccessfullyLaunched() {
         SurveytoCampaignPage.successfullyLaunched();
     }
+
+    @Then("Survey tocampaign should successfully saved")
+    public void surveyTocampaignShouldSuccessfullySaved() {
+        SurveytoCampaignPage.successfullyLaunched();
+    }
+
+    @Then("Survey tocampaign should successfully schedule")
+    public void surveyTocampaignShouldSuccessfullySchedule() {
+        SurveytoCampaignPage.successfullyLaunched();
+    }
+
+    @And("User is able to save survey tocampaign")
+    public void userIsAbleToSaveSurveyTocampaign() {
+        SurveytoCampaignPage.saveSurveyTocampaign();
+    }
+
+    @And("User is able to schedule survey tocampaign")
+    public void userIsAbleToScheduleSurveyTocampaign() {
+        SurveytoCampaignPage.scheduleEmailCampaign();
+    }
 }
