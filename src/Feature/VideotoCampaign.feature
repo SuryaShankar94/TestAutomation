@@ -1,9 +1,9 @@
-Feature: Opportunities
+Feature: Video Campaign
   Background:
     Given User launches xamplify application URL
     When User enters valid username and valid password
     Then Should display xamplify application home page
-  @Test_VideotoCampaign #@Functional @Smoke @Regression
+  @test @Test_VideotoCampaign @Priority2 #@Functional @Smoke @Regression
   Scenario: Validate Video Campaign Details
     When Verify user is able to mouserhover on campaign
     Then User is able to select create campaign
@@ -20,8 +20,6 @@ Feature: Opportunities
     And User is able to send a test mail before launch
     And User is able to perform spam check
     And User is able to launch video campaign now
-  @Save_VideotoCampaign #@Functional @Smoke @Regression
-  Scenario: Save Video Campaign Details
     When Verify user is able to mouserhover on campaign
     Then User is able to select create campaign
     And User is able to click create a video campaign
@@ -30,8 +28,6 @@ Feature: Opportunities
     And User is able to select email template
     And User is able to select partner group
     And User is able to save video campaign
-  @Schedule_VideotoCampaign #@Functional @Smoke @Regression
-  Scenario: Schedule Video Campaign Details
     When Verify user is able to mouserhover on campaign
     Then User is able to select create campaign
     And User is able to click create a video campaign

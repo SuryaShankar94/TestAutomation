@@ -4,7 +4,7 @@ Feature: Opportunities
     When User enters valid partner username and valid password
     Then Should display xamplify application home page
 
-  @Functional @Smoke @Regression @Test_OpportunitiesManageLeads
+ @test @Functional @Smoke @Regression @Test_OpportunitiesManageLeads
   Scenario: Validate Opportunities Manage Leads Details
     When Verify user is able to mouserHover on Opportunities
     Then User is able to mouseHover on Manage Leads
@@ -29,7 +29,7 @@ Feature: Opportunities
     And User is able to click comment lead icon
     And User is able to click delete lead icon
     And User is able to click page drop down
-   ### And User is able to logout the xamplify application
+  ### And User is able to logout the xamplify application
 ##########################################################################################################
 #   # #Given User launches xamplify Application URL
 #  #  #When User enters valid username and valid password
