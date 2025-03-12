@@ -56,6 +56,7 @@ public class UserActions extends TestSetup {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
             WebElement element = driver.findElement(locator);
+            element.clear();
             element.sendKeys(value);
         }catch (Exception e){
             System.out.println(e);
@@ -200,7 +201,7 @@ public class UserActions extends TestSetup {
     public static void getDropDownSelectIndex(By locator, int index) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
        // System.out.println("SDSDSD");
-
+        waitForElementVisible(locator);
         Select dropdown = new Select(driver.findElement(locator));
         //System.out.println("SDSDSDDGGTTR");
         dropdown.selectByIndex(index);
@@ -271,7 +272,8 @@ public class UserActions extends TestSetup {
         System.out.println("Search KEY==>STEP111"+searchValue+"Search Box"+searchBox);
         waitForElementVisible(searchBox);
         wait_Sec();wait_Sec();
-        setValue(searchBox,searchValue);
+       // setValue(searchBox,searchValue);
+        enterValueInTextBox(searchBox,searchValue);
         System.out.println("Search KEY==>STEP2");
         click(clickSearchIcon);
     }
@@ -418,6 +420,7 @@ public class UserActions extends TestSetup {
         click(scheduleToday);
         waitForElementVisible(scheduleHours);
         wait_Sec();wait_Sec();
+        driver.findElement(scheduleHours).clear();
         driver.findElement(scheduleHours).sendKeys("11");
         waitForElementVisible(scheduleMins);
         driver.findElement(scheduleMins).clear();
