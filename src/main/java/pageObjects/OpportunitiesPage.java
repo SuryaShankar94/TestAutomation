@@ -47,14 +47,14 @@ public class OpportunitiesPage extends TestSetup{
         UserActions.getDropDownSelectIndex(locator,1);
         UserActions.getDropDownSelectIndex(OpportunitiesLocators.pipelineId,2);
         UserActions.getDropDownSelectIndex(OpportunitiesLocators.pipelineStageId,2);
-        UserActions.setValue(OpportunitiesLocators.addleadCommentId,"Added few points regarding to add lead");
+        UserActions.enterValueInTextBox(OpportunitiesLocators.addleadCommentId,"Added few points regarding to add lead");
     }
 
     public static void fillTheAddLeadDetails() {
-        UserActions.setValue(OpportunitiesLocators.lastNameId,"Lead"+System.currentTimeMillis());
-        UserActions.setValue(OpportunitiesLocators.companyId,"ISRO");
-        UserActions.setValue(OpportunitiesLocators.emailId,"nitya.bns@gmail.com");
-        //UserActions.setValue(OpportunitiesLocators.phoneNumberId,"98");
+        UserActions.enterValueInTextBox(OpportunitiesLocators.lastNameId,"Lead"+System.currentTimeMillis());
+        UserActions.enterValueInTextBox(OpportunitiesLocators.companyId,"ISRO");
+        UserActions.enterValueInTextBox(OpportunitiesLocators.emailId,"nitya.bns@gmail.com");
+        //UserActions.enterValueInTextBox(OpportunitiesLocators.phoneNumberId,"98");
     }
 
     public static void SaveLeadButton() {
@@ -103,7 +103,7 @@ public class OpportunitiesPage extends TestSetup{
 //        //UserActions.scrolling(locator);
 //        UserActions.wait_Sec();
 //        //UserActions.click(locator);
-//        UserActions.setValue(locator,"Comment-4444");
+//        UserActions.enterValueInTextBox(locator,"Comment-4444");
 //        locator = OpportunitiesLocators.leadViewCommentsSubmit;
 //        UserActions.click(locator);
 //        locator=OpportunitiesLocators.leadViewCloseButton;
@@ -118,15 +118,15 @@ public class OpportunitiesPage extends TestSetup{
         By locator = OpportunitiesLocators.leadCommentTxtArea;
         //UserActions.wait_Sec();
         UserActions.waitForElementVisible(locator);
-        UserActions.setValue(locator,"Comment-1234");
+        UserActions.enterValueInTextBox(locator,"Comment-1234");
 
         locator = OpportunitiesLocators.cityId;
         UserActions.waitForElementVisible(locator);
         //System.out.println("STEP2");
         //UserActions.scrolling(locator);
         UserActions.wait_Sec();
-        UserActions.setValue(locator,"Amritsar");
-        UserActions.setValue(OpportunitiesLocators.stateId,"Punjob");
+        UserActions.enterValueInTextBox(locator,"Amritsar");
+        UserActions.enterValueInTextBox(OpportunitiesLocators.stateId,"Punjob");
         UserActions.click(OpportunitiesLocators.leadUpdate);
     }
 
@@ -134,7 +134,7 @@ public class OpportunitiesPage extends TestSetup{
         UserActions.click(OpportunitiesLocators.leadComments);
         By locator = OpportunitiesLocators.leadCommentTxtArea;
         UserActions.waitForElementVisible(locator);
-        UserActions.setValue(locator,"Raise a request to change stage");
+        UserActions.enterValueInTextBox(locator,"Raise a request to change stage");
         UserActions.click(OpportunitiesLocators.leadCommentSubmit);
         UserActions.click(OpportunitiesLocators.leadCommentWindowClose);
     }
@@ -224,9 +224,9 @@ public class OpportunitiesPage extends TestSetup{
         UserActions.getDropDownSelectIndex(locator,2);
         UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.getDropDownSelectIndex(OpportunitiesLocators.dealPipeLineStage,2);
-        UserActions.setValue(OpportunitiesLocators.dealComment,"Lead to Deal Convertion");
-        UserActions.setValue(OpportunitiesLocators.dealName,""+System.currentTimeMillis());
-        UserActions.setValue(OpportunitiesLocators.dealAmount,"20000");
+        UserActions.enterValueInTextBox(OpportunitiesLocators.dealComment,"Lead to Deal Convertion");
+        UserActions.enterValueInTextBox(OpportunitiesLocators.dealName,""+System.currentTimeMillis());
+        UserActions.enterValueInTextBox(OpportunitiesLocators.dealAmount,"20000");
         By closeDate = OpportunitiesLocators.selectCloseDate;
         By dealCloseDate = OpportunitiesLocators.dealCloseDate;
         UserActions.selectDate(closeDate,dealCloseDate);
@@ -281,7 +281,7 @@ public class OpportunitiesPage extends TestSetup{
         UserActions.waitForElementVisible(locator);UserActions.waitForElementVisible(locator);
         UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.getDropDownSelectIndex(OpportunitiesLocators.dealPipeLineStage,index);
-        UserActions.setValue(OpportunitiesLocators.dealComment,"Added few points regarding to add deal");
+        UserActions.enterValueInTextBox(OpportunitiesLocators.dealComment,"Added few points regarding to add deal");
 
 
     }
@@ -303,10 +303,10 @@ public class OpportunitiesPage extends TestSetup{
             UserActions.waitForElementVisible(locator);
             UserActions.wait_Sec();
             UserActions.getDropDownSelectIndex(locator,1);
-            UserActions.setValue(OpportunitiesLocators.lastNameId,"lead_"+System.currentTimeMillis());
-            UserActions.setValue(OpportunitiesLocators.companyId,"Surya Expo");
-            UserActions.setValue(OpportunitiesLocators.emailId,"nitya.bns@gmail.com");
-            UserActions.setValue(OpportunitiesLocators.countryId,"INDIA");
+            UserActions.enterValueInTextBox(OpportunitiesLocators.lastNameId,"lead_"+System.currentTimeMillis());
+            UserActions.enterValueInTextBox(OpportunitiesLocators.companyId,"Surya Expo");
+            UserActions.enterValueInTextBox(OpportunitiesLocators.emailId,"nitya.bns@gmail.com");
+            UserActions.enterValueInTextBox(OpportunitiesLocators.countryId,"INDIA");
             locator = OpportunitiesLocators.saveLeadButton;
             UserActions.waitForElementVisible(locator);
             UserActions.click(locator);
@@ -345,8 +345,8 @@ public class OpportunitiesPage extends TestSetup{
 
     public static void fillDealDetails() {
         UserActions.wait_Sec();
-        UserActions.setValue(OpportunitiesLocators.dealName,"Deal"+System.currentTimeMillis());
-        UserActions.setValue(OpportunitiesLocators.dealAmount,"20000");
+        UserActions.enterValueInTextBox(OpportunitiesLocators.dealName,"Deal"+System.currentTimeMillis());
+        UserActions.enterValueInTextBox(OpportunitiesLocators.dealAmount,"20000");
         By closeDate = OpportunitiesLocators.selectCloseDate;
         By dealCloseDate = OpportunitiesLocators.dealCloseDate;
         UserActions.selectDate(closeDate,dealCloseDate);
@@ -424,7 +424,7 @@ public class OpportunitiesPage extends TestSetup{
         locator = OpportunitiesLocators.dealComment;
         UserActions.waitForElementVisible(locator);UserActions.waitForElementVisible(locator);
         UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-        UserActions.setValue(locator,"Deal Edited");
+        UserActions.enterValueInTextBox(locator,"Deal Edited");
         UserActions.click(OpportunitiesLocators.saveDeal);
         UserActions.closeSearch(OpportunitiesLocators.clickCloseSearchDealIcon);
     }
@@ -439,7 +439,7 @@ public class OpportunitiesPage extends TestSetup{
         UserActions.click(locator);
         UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.getDropDownSelectIndex(OpportunitiesLocators.dealStageValue,2);
-        UserActions.setValue(OpportunitiesLocators.dealStageComment,"Stage value updated from the drop down");
+        UserActions.enterValueInTextBox(OpportunitiesLocators.dealStageComment,"Stage value updated from the drop down");
         UserActions.click(OpportunitiesLocators.dealStageUpdateBtn);
     }
 
@@ -453,7 +453,7 @@ public class OpportunitiesPage extends TestSetup{
         UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.click(locator);
         UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-        UserActions.setValue(OpportunitiesLocators.commentHistoryDeal,"Comment History Deal");
+        UserActions.enterValueInTextBox(OpportunitiesLocators.commentHistoryDeal,"Comment History Deal");
         locator = OpportunitiesLocators.dealCommentSubmit;
         UserActions.waitForElementVisible(locator);
         UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
@@ -546,7 +546,7 @@ public class OpportunitiesPage extends TestSetup{
         UserActions.waitForElementVisible(locator);
         UserActions.waitForElementVisible(locator);
         UserActions.click(locator);
-        UserActions.setValue(OpportunitiesLocators.commentHistoryDeal,"Comment History Lead");
+        UserActions.enterValueInTextBox(OpportunitiesLocators.commentHistoryDeal,"Comment History Lead");
         locator = OpportunitiesLocators.dealCommentSubmit;
         UserActions.waitForElementVisible(locator);
      //   UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
@@ -564,10 +564,10 @@ public class OpportunitiesPage extends TestSetup{
                 UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
                 //UserActions.getDropDownSelectIndex(OpportunitiesLocators.dealStageValue,1);
                 locator = OpportunitiesLocators.dealStageComment;
-                UserActions.setValue(locator,"Stage value updated from the drop down");
-                UserActions.setValue(OpportunitiesLocators.websiteId,"www.xamplify.co");
-                UserActions.setValue(OpportunitiesLocators.industryId,"IT");
-                UserActions.setValue(OpportunitiesLocators.regionID,"Asaia");
+                UserActions.enterValueInTextBox(locator,"Stage value updated from the drop down");
+                UserActions.enterValueInTextBox(OpportunitiesLocators.websiteId,"www.xamplify.co");
+                UserActions.enterValueInTextBox(OpportunitiesLocators.industryId,"IT");
+                UserActions.enterValueInTextBox(OpportunitiesLocators.regionID,"Asaia");
                 UserActions.click(OpportunitiesLocators.campViewLeadUpdate);
             } else {
                 System.out.println("Edit Option is not enable so please check once If Block");
@@ -634,7 +634,7 @@ public class OpportunitiesPage extends TestSetup{
         UserActions.click(locator);
         UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-        UserActions.setValue(OpportunitiesLocators.commentHistoryDeal,"Comment History Lead");
+        UserActions.enterValueInTextBox(OpportunitiesLocators.commentHistoryDeal,"Comment History Lead");
         locator = OpportunitiesLocators.dealCommentSubmit;
         UserActions.waitForElementVisible(locator);
         UserActions.wait_Sec();UserActions.wait_Sec();//UserActions.wait_Sec();UserActions.wait_Sec();
@@ -662,7 +662,7 @@ public class OpportunitiesPage extends TestSetup{
 
             UserActions.getDropDownSelectIndex(OpportunitiesLocators.campViewEditDealStage,1);
             locator = OpportunitiesLocators.campViewEditAddComment;
-            UserActions.setValue(locator,"Stage value and comment also updated from the drop down");
+            UserActions.enterValueInTextBox(locator,"Stage value and comment also updated from the drop down");
             UserActions.click(OpportunitiesLocators.campViewUpdateDeal);
         } else {
             ExtentCucumberAdapter.addTestStepLog("Edit Option is not enable so please check once");
@@ -705,7 +705,7 @@ public class OpportunitiesPage extends TestSetup{
         locator = OpportunitiesLocators.dealStageValue;
         UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.getDropDownSelectIndex(locator,3);
-        UserActions.setValue(OpportunitiesLocators.dealStageComment,"Stage value updated from the drop down");
+        UserActions.enterValueInTextBox(OpportunitiesLocators.dealStageComment,"Stage value updated from the drop down");
         UserActions.click(OpportunitiesLocators.dealStageUpdateBtn);
         //UserActions.scrolling(By.id("permhref"));
         if(!UserActions.isElementDisplayed(OpportunitiesLocators.closeViewDeal))
@@ -762,7 +762,7 @@ public class OpportunitiesPage extends TestSetup{
         //UserActions.filterDropDownValues(OpportunitiesLocators.dealStatus,OpportunitiesLocators.dealStatusInput, selectDealStatus);
         //UserActions.waitForElementVisible(OpportunitiesLocators.dealStatus);
         System.out.println("Done 4");
-        //UserActions.setValue(OpportunitiesLocators.dealAddedby_temp,"automated_partner@analytify.com - ( Automated Partner )");
+        //UserActions.enterValueInTextBox(OpportunitiesLocators.dealAddedby_temp,"automated_partner@analytify.com - ( Automated Partner )");
         //driver.findElement(OpportunitiesLocators.dealAddedby).click();
         //driver.findElement(OpportunitiesLocators.dealAddedby).sendKeys("automated_partner@analytify.com - ( Automated Partner )");
         //UserActions.wait_Sec();UserActions.wait_Sec();
@@ -770,7 +770,7 @@ public class OpportunitiesPage extends TestSetup{
         //driver.findElement(OpportunitiesLocators.dealAddedby_temp).sendKeys(Keys.ENTER);
         //driver.findElement(OpportunitiesLocators.dealAddedby).
 
-        //UserActions.setValue(OpportunitiesLocators.dealAddedfor,"automatedVendor");
+        //UserActions.enterValueInTextBox(OpportunitiesLocators.dealAddedfor,"automatedVendor");
         //UserActions.getDropDownSelectIndex(OpportunitiesLocators.dealStatus,2);
         /// ////////////////////////////////////////////////////////////////////////////////////
         UserActions.click(OpportunitiesLocators.applyDealFilter);

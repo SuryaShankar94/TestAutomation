@@ -23,11 +23,11 @@ public class VideoToCampaignPage extends TestSetup {
     }
 
     public static void fillTheToPartnerCampaignDetails() {
-        UserActions.setValue(VideoCampaignLocators.campaignName,"Video"+System.currentTimeMillis());
-        UserActions.setValue(VideoCampaignLocators.description,"Automatically Created a Video To Campaign");
+        UserActions.enterValueInTextBox(VideoCampaignLocators.campaignName,"Video"+System.currentTimeMillis());
+        UserActions.enterValueInTextBox(VideoCampaignLocators.description,"Automatically Created a Video To Campaign");
         UserActions.click(VideoCampaignLocators.insertMergeTags);
         UserActions.click(VideoCampaignLocators.mergeTagName);
-        UserActions.setValue(VideoCampaignLocators.preHeader,"ToCampaign Video");
+        UserActions.enterValueInTextBox(VideoCampaignLocators.preHeader,"ToCampaign Video");
         UserActions.click(VideoCampaignLocators.notifyeMailOpen);
         UserActions.click(VideoCampaignLocators.notifyLinkOpned);
         UserActions.click(VideoCampaignLocators.notifyVideoPlayed);
@@ -118,7 +118,7 @@ public class VideoToCampaignPage extends TestSetup {
         //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
         /// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //        UserActions.waitForElementVisible(VideoCampaignLocators.selectFolder);
-//        UserActions.setValue(VideoCampaignLocators.selectFolder,"automatedvendor-Default-Folder");
+//        UserActions.enterValueInTextBox(VideoCampaignLocators.selectFolder,"automatedvendor-Default-Folder");
 //        UserActions.wait_Sec();
 //        driver.findElement(VideoCampaignLocators.selectFolder).sendKeys(Keys.ENTER);
         String folderName = "automatedvendor-Default-Folder";
@@ -170,7 +170,7 @@ public class VideoToCampaignPage extends TestSetup {
         if(eMailId.isEmpty()){
             eMailId = "nitya.bns@gmail.com";
         }
-        UserActions.setValue(VideoCampaignLocators.entereMailAddress,eMailId);
+        UserActions.enterValueInTextBox(VideoCampaignLocators.entereMailAddress,eMailId);
         UserActions.click(VideoCampaignLocators.sendTestButton);
         UserActions.click(VideoCampaignLocators.emailSentSuccessOK);
         UserActions.click(VideoCampaignLocators.nextButton);
@@ -225,7 +225,7 @@ public class VideoToCampaignPage extends TestSetup {
         if(eMailId.isEmpty()){
             eMailId = "nitya.bns@gmail.com";
         }
-        UserActions.setValue(VideoCampaignLocators.entereMailAddress,eMailId);
+        UserActions.enterValueInTextBox(VideoCampaignLocators.entereMailAddress,eMailId);
         UserActions.click(VideoCampaignLocators.sendTestButton);
         UserActions.click(VideoCampaignLocators.emailSentSuccessOK);
     }

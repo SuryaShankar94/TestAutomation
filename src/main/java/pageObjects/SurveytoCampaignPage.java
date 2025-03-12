@@ -25,14 +25,15 @@ public class SurveytoCampaignPage {
     }
 
     public static void fillSurveyTocampaignDetails() {
-        UserActions.setValue(SurveyCampaignLocators.campaignName,"survey"+System.currentTimeMillis());
-        UserActions.setValue(SurveyCampaignLocators.description,"Survey To Campaign Description");
+        UserActions.wait_Sec();
+        UserActions.enterValueInTextBox(SurveyCampaignLocators.campaignName,"survey"+System.currentTimeMillis());
+        UserActions.enterValueInTextBox(SurveyCampaignLocators.description,"Survey To Campaign Description");
 
         UserActions.getDropDownSelectIndex(SurveyCampaignLocators.folderSelection,1);
         UserActions.click(SurveyCampaignLocators.insertMergeTags);
         UserActions.click(SurveyCampaignLocators.mergeTagName);
         UserActions.getDropDownSelectIndex(SurveyCampaignLocators.fromeMail,1);
-        UserActions.setValue(SurveyCampaignLocators.preHeader,"eMail ToCampaign Header");
+        UserActions.enterValueInTextBox(SurveyCampaignLocators.preHeader,"eMail ToCampaign Header");
         UserActions.click(SurveyCampaignLocators.notifyEmailOpend);
         UserActions.click(SurveyCampaignLocators.notifyLinkOpned);
     }
@@ -43,7 +44,7 @@ public class SurveytoCampaignPage {
         By lastPg = SurveyCampaignLocators.surveyTemplateLast;
         By previousPg = SurveyCampaignLocators.surveyTemplateFirst;
         UserActions.performPagination(nextPg,previousPg,lastPg,firstPg);
-        By locator = SurveyCampaignLocators.surveyPaginationDrpDwn; 
+        By locator = SurveyCampaignLocators.surveyPaginationDrpDwn;
         UserActions.waitForElementVisible(locator);
         UserActions.wait_Sec();UserActions.wait_Sec();
         List<WebElement> webele = UserActions.getListOfElements(locator);
@@ -81,8 +82,8 @@ public class SurveytoCampaignPage {
             UserActions.click(SurveyCampaignLocators.showSurveyBtn);
             System.out.println("Template Survey Button Clicked");
             UserActions.wait_Sec();
-          //  UserActions.getDropDownSelectIndex(SurveyCampaignLocators.surveySort,1);UserActions.wait_Sec();
-
+            UserActions.getDropDownSelectIndex(SurveyCampaignLocators.surveySort,1);
+            UserActions.wait_Sec();
             UserActions.searchValue(SurveyCampaignLocators.surveySearchName,SurveyCampaignLocators.surveySerchIcon,searchKey);
             UserActions.wait_Sec();
             UserActions.click(SurveyCampaignLocators.surveyPreview);
@@ -102,7 +103,7 @@ public class SurveytoCampaignPage {
         if(eMailId.isEmpty()){
             eMailId = "nitya.bns@gmail.com";
         }
-        UserActions.setValue(SurveyCampaignLocators.entereMailAddress,eMailId);
+        UserActions.enterValueInTextBox(SurveyCampaignLocators.entereMailAddress,eMailId);
         UserActions.click(SurveyCampaignLocators.sendTestButton);
         UserActions.click(SurveyCampaignLocators.surveySentSuccessOK);
         UserActions.click(SurveyCampaignLocators.nextButton);
@@ -156,7 +157,7 @@ public class SurveytoCampaignPage {
         if(eMailId.isEmpty()){
             eMailId = "nitya.bns@gmail.com";
         }
-        UserActions.setValue(SurveyCampaignLocators.entereMailAddress,eMailId);
+        UserActions.enterValueInTextBox(SurveyCampaignLocators.entereMailAddress,eMailId);
         UserActions.click(SurveyCampaignLocators.sendTestButton);
         UserActions.click(SurveyCampaignLocators.surveySentSuccessOK);
     }
@@ -187,5 +188,31 @@ public class SurveytoCampaignPage {
             System.out.println("Campaign Not Launched Successfully");
             ExtentCucumberAdapter.addTestStepLog("Campaign Not Launched Successfully");
         }
+    }
+
+    public static void saveSurveyTocampaign() {
+//        fillSurveyTocampaignDetails();
+//        paginationOnSelectAnEmailTemplate();
+//        selectAnEmailTemplateByUsingSearchAndSort();
+//        performPaginationOnGroupOfPartner();
+//        selectPartnerGroupforSurveyTocampaign();
+//        sendATestMailBeforeLaunchSurveyTocampaign();
+//        spamCheckInSurveyTocampaign();
+        UserActions.click(SurveyCampaignLocators.launchSave);
+        UserActions.click(SurveyCampaignLocators.surveySaveButton);
+    }
+
+    public static void scheduleEmailCampaign() {
+//        fillSurveyTocampaignDetails();
+//        paginationOnSelectAnEmailTemplate();
+//        selectAnEmailTemplateByUsingSearchAndSort();
+//        performPaginationOnGroupOfPartner();
+//        selectPartnerGroupforSurveyTocampaign();
+//        sendATestMailBeforeLaunchSurveyTocampaign();
+//        spamCheckInSurveyTocampaign();
+        UserActions.click(SurveyCampaignLocators.launchShedule);
+        //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.getDropDownSelectIndex(SurveyCampaignLocators.scheduleCountry,3);
+        UserActions.scheduleDate(SurveyCampaignLocators.scheduleLaunchTime,SurveyCampaignLocators.scheduleDate,SurveyCampaignLocators.scheduleHours,SurveyCampaignLocators.scheduleMins,SurveyCampaignLocators.scheduleButton);
     }
 }

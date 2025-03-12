@@ -145,6 +145,7 @@ public class EmailToCampaignPage extends TestSetup{
         }
 
         UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.waitForElementVisible(EmailtoCampaignLocators.selctpartnerGroupPreview);
         UserActions.click(EmailtoCampaignLocators.selctpartnerGroupPreview);
         UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.click(EmailtoCampaignLocators.closePartnerPreview);
@@ -161,7 +162,8 @@ public class EmailToCampaignPage extends TestSetup{
         if(eMailId.isEmpty()){
             eMailId = "nitya.bns@gmail.com";
         }
-        UserActions.setValue(EmailtoCampaignLocators.entereMailAddress,eMailId);
+        //UserActions.setValue(EmailtoCampaignLocators.entereMailAddress,eMailId);
+        UserActions.enterValueInTextBox(EmailtoCampaignLocators.entereMailAddress,eMailId);
         UserActions.click(EmailtoCampaignLocators.sendTestButton);
         UserActions.click(EmailtoCampaignLocators.emailSentSuccessOK);
     }
