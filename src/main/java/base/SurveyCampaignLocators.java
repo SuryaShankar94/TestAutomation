@@ -48,7 +48,7 @@ public class SurveyCampaignLocators {
     public static final By surveyTemplateFirst = By.xpath("(//i[@class='fa fa-angle-double-left' and @title='First'])[1]");
     public static final By surveyPaginationDrpDwn = By.xpath("(//select[contains(@class,'form-control margin-top pointer mt')])[1]");
     public static final By nextButton = By.xpath("//button[contains(@class,'btn btn-primary pull-right')]");
-    public static final By surveyPgnationDrpDwn = By.xpath("(//select[contains(@class,'form-control margin-top pointer mt')])[1]");
+    public static final By surveyPgnationDrpDwn = By.xpath("(//select[contains(@class,'form-control margin-top pointer mt')])[2]");
     public static final By sortPartnerGroup = By.xpath("//select[contains(@class,'form-control cc mTopSort ng-untouched ng-pristine')]");
     public static final By searchPartnerGroup = By.xpath("(//input[contains(@class,'form-control ') and @placeholder='Search here'])[2]");
     public static final By searchPartnerGroupIcon = By.xpath("(//button[contains(@class,'search-box-item-click email-search')])[2]");
@@ -70,7 +70,11 @@ public class SurveyCampaignLocators {
     public static final By surveySaveButton = By.xpath("//span[contains(@class,'btn Btn-Green transition pos_pd-top') and contains(text(),'Save')]");
     public static final By scheduleButton = By.xpath("//span[contains(@class,'btn Btn-Green transition pos_pd-top') and contains(text(),'Schedule')]");
     public static final By scheduleLaunchTime = By.xpath("//input[@id='launchTime']");
-    public static final By scheduleDate = By.xpath("(// div[contains(@class,'flatpickr-calendar animate arrowTop open')]// div[@class='dayContainer']// span[@class='flatpickr-day today selected'])");
+    public static final By scheduleDate = By.xpath("(// div[contains(@class,'flatpickr-calendar hasTime animate ')]// div[@class='dayContainer']// span[@class='flatpickr-day today'])");
+    //public static final By scheduleDate = By.xpath("(// div[contains(@class,'flatpickr-calendar animate ')]// div[@class='dayContainer']// span[@class='flatpickr-day today'])");
+    public static final By scheduleHours = By.xpath("(//div[contains(@class,'flatpickr-calendar hasTime animate open ')]//div[@class='numInputWrapper']//input[@class='numInput flatpickr-hour'])");
+    public static final By scheduleMins = By.xpath("(//div[contains(@class,'flatpickr-calendar hasTime animate open ')]//div[@class='numInputWrapper']//input[@class='numInput flatpickr-minute'])");
+
     public static final By scheduleCountry = By.xpath("//select[@id='countryName']");
     public static final By spamCheck = By.xpath("//span[contains(@class,'btn Btn-Green transition pos_pd') and contains(text(),'Spam')]");
     public static final By innerSpamCheck = By.xpath("//span[contains(@class,'btn btn-primary transition txt_pd-t') and contains(text(),'Spam')]");
