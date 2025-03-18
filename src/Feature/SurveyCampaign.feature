@@ -46,4 +46,4 @@ Feature: Survey To Campaign
     And User is able to perform spam check in survey tocampaign
     And User is able to schedule survey tocampaign
     Then Survey tocampaign should successfully schedule
-#    And User is able to logout the xamplify application
+    And User is able to logout the xamplify application
