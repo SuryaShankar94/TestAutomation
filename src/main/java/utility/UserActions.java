@@ -257,25 +257,24 @@ public class UserActions extends TestSetup {
     }
 
     public static void searchLeadOrDeal(By searchDeals, By clickSearchDealIcon, String searchValue) {
-        //wait_Sec();wait_Sec();wait_Sec();
-        System.out.println("Step 0");
+        System.out.println("Search Enter");
+        wait_Sec();wait_Sec();
         waitForElementVisible(searchDeals);
-        wait_Sec();
         setValue(searchDeals,searchValue);
-        System.out.println("Step 1");
+        System.out.println("Search Value Entered");
         wait_Sec();wait_Sec();
         click(clickSearchDealIcon);
-        System.out.println("Step 2");
+        System.out.println("Search Value Selected");
     }
 
     public static void searchValue(By searchBox, By clickSearchIcon, String searchValue) {
-        System.out.println("Search KEY==>STEP111"+searchValue+"Search Box"+searchBox);
-        waitForElementVisible(searchBox);
+        System.out.println("Search KEY==>"+searchValue);
         wait_Sec();wait_Sec();
-       // setValue(searchBox,searchValue);
+        waitForElementVisible(searchBox);
         enterValueInTextBox(searchBox,searchValue);
-        System.out.println("Search KEY==>STEP2");
+        System.out.println("Search Value Entered");
         click(clickSearchIcon);
+        System.out.println("Search Value Selected");
     }
     public static void closeSearch(By clickCloseSearchButton) {
         waitForElementVisible(clickCloseSearchButton);
@@ -294,23 +293,26 @@ public class UserActions extends TestSetup {
 
     public static void performPagination(By nextPg, By previousPg, By lastPg, By firstPg) {
         Boolean val = isClicked(nextPg);
+        wait_Sec();//wait_Sec();
         waitForElementVisible(nextPg);
         System.out.println("VALUE=>"+val);
-        if(isElementDisplayed(nextPg) && isClicked(nextPg)) {
-
+        if(isClicked(nextPg)) {
             System.out.println("Start");
             click(nextPg);
             System.out.println("Next");
-            wait_Sec();wait_Sec();
+            wait_Sec();//wait_Sec();
+            waitForElementVisible(previousPg);
             click(previousPg);
             System.out.println("Previous");
-            wait_Sec();wait_Sec();
+            wait_Sec();//wait_Sec();
+            waitForElementVisible(lastPg);
             click(lastPg);
             System.out.println("Last");
             wait_Sec();wait_Sec();
+            waitForElementVisible(firstPg);
             click(firstPg);
             System.out.println("First");
-            wait_Sec();wait_Sec();
+            wait_Sec();//wait_Sec();
         }
     }
 
@@ -318,7 +320,7 @@ public class UserActions extends TestSetup {
         waitForElementVisible(fromDate);
         wait_Sec();wait_Sec();
         click(fromDate);
-        System.out.println("VALUE 3");
+        //System.out.println("VALUE 3");
         System.out.println("COUNT==>"+getListOfElements(selectDate).stream().count());
         waitForElementVisible(selectDate);
         List<WebElement> getCloseDates = getListOfElements(selectDate);
@@ -333,17 +335,17 @@ public class UserActions extends TestSetup {
         } else {
             By locator = OpportunitiesLocators.selectPreviousMonth;
             waitForElementVisible(locator);
-            wait_Sec();wait_Sec();wait_Sec();
+            wait_Sec();wait_Sec();//wait_Sec();
             click(locator);
             getCloseDates = getListOfElements(selectDate);
             count = getCloseDates.size();
-            System.out.println("CLOSE DATEEEEE---->"+count);
+           // System.out.println("CLOSE DATEEEEE---->"+count);
             //wait_Sec();
             if(index>0){
                 index = count-1;
             }
             if(!getCloseDates.isEmpty()) {
-                wait_Sec();wait_Sec();wait_Sec();
+                wait_Sec();wait_Sec();//wait_Sec();
                 // System.out.println("Select CLOSE DATEEEEE---->"+getCloseDates1.get(1));
                 getCloseDates.get(index).click();
                 //waitForElementVisible(locator);
@@ -379,9 +381,9 @@ public class UserActions extends TestSetup {
         int count = drpdwn.size();
         int i = 0;
         while(i<count) {
-            System.out.println(i);wait_Sec();
+            System.out.println(i);
             getDropDownSelectIndex(sortEmailTemplate,i);
-            wait_Sec();//
+            wait_Sec();
             i++;
         }
     }
@@ -402,7 +404,7 @@ public class UserActions extends TestSetup {
     public static void performFilterAction(By filterIcon, By selectFolder, By filterApplyButton, By filterClearButton, String folderName) {
         click(filterIcon);
         waitForElementVisible(selectFolder);
-        setValue(selectFolder,folderName);
+        enterValueInTextBox(selectFolder,folderName);
         wait_Sec();
         driver.findElement(selectFolder).sendKeys(Keys.ENTER);
         //wait_Sec();
@@ -444,11 +446,7 @@ public class UserActions extends TestSetup {
 
     public static boolean isEnabled(By locator) {
         try {
-             if(driver.findElement(locator).isEnabled()) {
-                 return true;
-             } else {
-                 return false;
-             }
+            return driver.findElement(locator).isEnabled();
         } catch (Exception e) {
            // e.getMessage();
             return  false;
