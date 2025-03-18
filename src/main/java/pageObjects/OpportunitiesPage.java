@@ -51,6 +51,8 @@ public class OpportunitiesPage extends TestSetup{
     }
 
     public static void fillTheAddLeadDetails() {
+        UserActions.wait_Sec();
+        UserActions.waitForElementVisible(OpportunitiesLocators.lastNameId);
         UserActions.enterValueInTextBox(OpportunitiesLocators.lastNameId,"Lead"+System.currentTimeMillis());
         UserActions.enterValueInTextBox(OpportunitiesLocators.companyId,"ISRO");
         UserActions.enterValueInTextBox(OpportunitiesLocators.emailId,"nitya.bns@gmail.com");
@@ -250,7 +252,7 @@ public class OpportunitiesPage extends TestSetup{
         for (WebElement element :elementList) {
             if(!elementList.isEmpty()){
                 index++;
-                String val1 = element.getText().toString();
+                String val1 = element.getText();
                 String val2 = userInputProperties.getProperty("companyName");
                 System.out.println("VAL1 => "+val1+" ,VAL2=> "+" INDEX=>"+index);
                 if(val2.equalsIgnoreCase(val1)){
@@ -345,6 +347,7 @@ public class OpportunitiesPage extends TestSetup{
 
     public static void fillDealDetails() {
         UserActions.wait_Sec();
+        UserActions.waitForElementVisible(OpportunitiesLocators.dealName);
         UserActions.enterValueInTextBox(OpportunitiesLocators.dealName,"Deal"+System.currentTimeMillis());
         UserActions.enterValueInTextBox(OpportunitiesLocators.dealAmount,"20000");
         By closeDate = OpportunitiesLocators.selectCloseDate;

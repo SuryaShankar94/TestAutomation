@@ -1,5 +1,6 @@
 package pageObjects;
 
+import base.SurveyCampaignLocators;
 import base.TestSetup;
 import base.VideoCampaignLocators;
 import org.openqa.selenium.By;
@@ -23,6 +24,9 @@ public class VideoToCampaignPage extends TestSetup {
     }
 
     public static void fillTheToPartnerCampaignDetails() {
+        UserActions.wait_Sec();
+        UserActions.waitForElementVisible(VideoCampaignLocators.campaignName);
+        UserActions.waitForElementVisible(VideoCampaignLocators.campaignName);
         UserActions.enterValueInTextBox(VideoCampaignLocators.campaignName,"Video"+System.currentTimeMillis());
         UserActions.enterValueInTextBox(VideoCampaignLocators.description,"Automatically Created a Video To Campaign");
         UserActions.click(VideoCampaignLocators.insertMergeTags);
@@ -34,30 +38,20 @@ public class VideoToCampaignPage extends TestSetup {
     }
 
     public static void videoSelectionPagination() {
-        By locator = VideoCampaignLocators.videoNext;
-        //UserActions.scrolling(locator);
-        Boolean val = UserActions.isElementDisplayed(locator);
-       // System.out.println("Pagination VALUE=>"+val);
-        UserActions.wait_Sec();UserActions.wait_Sec();
-        if(val) {
-            UserActions.click(locator);
-            System.out.println("Next");
-            UserActions.wait_Sec();
-            UserActions.click(VideoCampaignLocators.videoPrevious);
-            System.out.println("Previous");
-            UserActions.wait_Sec();
-            UserActions.click(VideoCampaignLocators.videoLast);
-            System.out.println("Last");
-            UserActions.wait_Sec();
-            UserActions.click(VideoCampaignLocators.videoFirst);
-            System.out.println("First");
-            UserActions.wait_Sec();UserActions.wait_Sec();
-            UserActions.getDropDownSelectIndex(VideoCampaignLocators.videoPagenationDrpDwn,2);
-            UserActions.wait_Sec();UserActions.wait_Sec();
-            UserActions.getDropDownSelectIndex(VideoCampaignLocators.videoPagenationDrpDwn,1);
-            UserActions.wait_Sec();UserActions.wait_Sec();
+        By nextPg = VideoCampaignLocators.videoNext;
+        By firstPg = VideoCampaignLocators.videoFirst;
+        By lastPg = VideoCampaignLocators.videoLast;
+        By previousPg = VideoCampaignLocators.videoPrevious;
+        By locator = VideoCampaignLocators.videoPagenationDrpDwn;
+        UserActions.waitForElementVisible(locator);
+        UserActions.performPagination(nextPg, previousPg, lastPg, firstPg);
+        UserActions.wait_Sec();//UserActions.wait_Sec();
+        List<WebElement> webele = UserActions.getListOfElements(locator);
+        System.out.println("Before Pagination function Call =>" + webele.size()+" ==>"+webele);
+        if (webele.size() > 1) {
+            UserActions.getDropDownSelectIndex(locator, 2);
+            System.out.println("After Pagination function Call");
         }
-
     }
     public static void selectVideoForCampaign() {
         By locator = VideoCampaignLocators.selectVideoCategoryDrpDwn;
@@ -88,47 +82,27 @@ public class VideoToCampaignPage extends TestSetup {
     }
 
     public static void emailSelectionPagination() {
-        By locator = VideoCampaignLocators.eMailTemplateNext;
-        Boolean val = UserActions.isElementDisplayed(locator);
-        //System.out.println("Page Nation VALUE=>"+val);
-        UserActions.wait_Sec();
-        if(val) {
-            UserActions.click(locator);
-            System.out.println("Next");
-            UserActions.wait_Sec();
-            UserActions.click(VideoCampaignLocators.eMailTemplatePrevious);
-            System.out.println("Previous");
-            UserActions.wait_Sec();
-            UserActions.click(VideoCampaignLocators.eMailTemplateLast);
-            System.out.println("Last");
-            UserActions.wait_Sec();
-            UserActions.click(VideoCampaignLocators.eMailTemplateFirst);
-            System.out.println("First");
-            UserActions.wait_Sec();
-            UserActions.getDropDownSelectIndex(VideoCampaignLocators.eMailPaginationDrpDwn,2);
+        By nextPg = VideoCampaignLocators.eMailTemplateNext;
+        By firstPg = VideoCampaignLocators.eMailTemplateFirst;
+        By lastPg = VideoCampaignLocators.eMailTemplateLast;
+        By previousPg = VideoCampaignLocators.eMailTemplatePrevious;
+        By locator = VideoCampaignLocators.eMailPaginationDrpDwn;
+        UserActions.waitForElementVisible(locator);
+        UserActions.performPagination(nextPg, previousPg, lastPg, firstPg);
+        List<WebElement> webele = UserActions.getListOfElements(locator);
+        System.out.println("Before Pagination function Call" + webele.size());
+        if (webele.size() > 1) {
             UserActions.wait_Sec();//UserActions.wait_Sec();
-            UserActions.getDropDownSelectIndex(VideoCampaignLocators.eMailPaginationDrpDwn,1);
-            UserActions.wait_Sec();//UserActions.wait_Sec();
+            UserActions.getDropDownSelectIndex(locator, 2);
+            System.out.println("After Pagination function Call");
         }
     }
 
     public static void selectEmailTemplate() {
         UserActions.performSorting(VideoCampaignLocators.sortSelecteMailTemplate);
-       // UserActions.click(VideoCampaignLocators.clickFilterIcon);
-        //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-        /// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//        UserActions.waitForElementVisible(VideoCampaignLocators.selectFolder);
-//        UserActions.enterValueInTextBox(VideoCampaignLocators.selectFolder,"automatedvendor-Default-Folder");
-//        UserActions.wait_Sec();
-//        driver.findElement(VideoCampaignLocators.selectFolder).sendKeys(Keys.ENTER);
         String folderName = "automatedvendor-Default-Folder";
         UserActions.performFilterAction(VideoCampaignLocators.clickFilterIcon,VideoCampaignLocators.selectFolder,VideoCampaignLocators.filterApplyButton,VideoCampaignLocators.filterClearButton,folderName);
-        /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        // UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-        //UserActions.click(VideoCampaignLocators.filterApplyButton);
-       // UserActions.wait_Sec();
-       // UserActions.click(VideoCampaignLocators.filterClearButton);
-        //UserActions.wait_Sec();
+        UserActions.wait_Sec();
         String searchKey = userInputProperties.getProperty("emailTemplateforCamp");
         //System.out.println("eMail Template Search KEY==>"+searchKey);
         if (searchKey.isEmpty()){
@@ -146,24 +120,10 @@ public class VideoToCampaignPage extends TestSetup {
             UserActions.click(locator);
             System.out.println("Template Edited");
             UserActions.wait_Sec();//UserActions.wait_Sec();
-            //locator =
-/// //////////////////////////////////////////////////////////////////////////////////////////////////////////
-//            UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-            //UserActions.waitForElementVisible(locator);
-            //driver.switchTo().frame(driver.findElement());
+            UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
             By frameId = By.id("xamplify-bee-template-container__bee-plugin-frame");
             UserActions.handlingeMailTemplateiFrame(frameId,VideoCampaignLocators.saveTemplate,VideoCampaignLocators.closeTemplate);
-//            UserActions.waitForElementVisible(locator);
-//            UserActions.click(locator);
-//            System.out.println("Template Saved");
-//            driver.switchTo().defaultContent();
-///// ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-//            locator = VideoCampaignLocators.closeTemplate;
-//            UserActions.waitForElementVisible(locator);
-//            UserActions.wait_Sec();
-//            UserActions.click(locator);
-//            System.out.println("Steplate Closed");
-            UserActions.closeSearch(VideoCampaignLocators.searchCleareMailTemplate);
+        // //   UserActions.closeSearch(VideoCampaignLocators.searchCleareMailTemplate);
         }
         UserActions.click(VideoCampaignLocators.sendTestMailButton);
         String eMailId = userInputProperties.getProperty("mailIDforVideoCamp");
@@ -177,24 +137,19 @@ public class VideoToCampaignPage extends TestSetup {
     }
 
     public static void partnerSelectionPagination() {
-        By locator = VideoCampaignLocators.partnerGroupNext;
-        Boolean val = UserActions.isElementDisplayed(locator);
-        //System.out.println("Page Nation VALUE=>"+val);
-        if(val) {
-            UserActions.click(locator);
-            //System.out.println("Next");
-            UserActions.wait_Sec();
-            UserActions.click(VideoCampaignLocators.partnerGroupPrevious);
-            //System.out.println("Previous");
-            UserActions.wait_Sec();
-            UserActions.click(VideoCampaignLocators.partnerGroupLast);
-           // System.out.println("Last");
-            UserActions.wait_Sec();
-            UserActions.click(VideoCampaignLocators.partnerGroupFirst);
-           // System.out.println("First");
-            UserActions.wait_Sec();
-//            UserActions.getDropDownSelectIndex(VideoCampaignLocators.partnerPaginationDrpDwn,2);
-//            UserActions.wait_Sec();UserActions.wait_Sec();
+        By nextPg = VideoCampaignLocators.partnerGroupNext;
+        By firstPg = VideoCampaignLocators.partnerGroupFirst;
+        By lastPg = VideoCampaignLocators.partnerGroupLast;
+        By previousPg = VideoCampaignLocators.partnerGroupPrevious;
+        By locator = VideoCampaignLocators.partnerPaginationDrpDwn;
+        UserActions.waitForElementVisible(locator);
+        UserActions.performPagination(nextPg, previousPg, lastPg, firstPg);
+        List<WebElement> webele = UserActions.getListOfElements(locator);
+        System.out.println("Before Pagination function Call" + webele.size());
+        if (webele.size() > 1) {
+            UserActions.wait_Sec();//UserActions.wait_Sec();
+            UserActions.getDropDownSelectIndex(locator, 2);
+            System.out.println("After Pagination function Call");
         }
     }
 
@@ -243,9 +198,6 @@ public class VideoToCampaignPage extends TestSetup {
         UserActions.click(VideoCampaignLocators.launchShedule);
         //UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.getDropDownSelectIndex(VideoCampaignLocators.sheduleCountry,3);
-//        UserActions.click(VideoCampaignLocators.sheduleLaunchTime);
-//        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
-//        UserActions.click(VideoCampaignLocators.sheduleDate);
         UserActions.scheduleDate(VideoCampaignLocators.scheduleLaunchTime,VideoCampaignLocators.scheduleToday,VideoCampaignLocators.scheduleHours,VideoCampaignLocators.scheduleMins,VideoCampaignLocators.scheduleButton);
         //UserActions.click(VideoCampaignLocators.scheduleButton);
         UserActions.wait_Sec();

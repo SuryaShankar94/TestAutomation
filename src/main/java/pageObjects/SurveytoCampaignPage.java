@@ -26,6 +26,7 @@ public class SurveytoCampaignPage {
 
     public static void fillSurveyTocampaignDetails() {
         UserActions.wait_Sec();
+        UserActions.waitForElementVisible(SurveyCampaignLocators.campaignName);
         UserActions.enterValueInTextBox(SurveyCampaignLocators.campaignName,"survey"+System.currentTimeMillis());
         UserActions.enterValueInTextBox(SurveyCampaignLocators.description,"Survey To Campaign Description");
 
@@ -43,11 +44,12 @@ public class SurveytoCampaignPage {
         By firstPg = SurveyCampaignLocators.surveyTemplatePrevious;
         By lastPg = SurveyCampaignLocators.surveyTemplateLast;
         By previousPg = SurveyCampaignLocators.surveyTemplateFirst;
-        UserActions.performPagination(nextPg,previousPg,lastPg,firstPg);
         By locator = SurveyCampaignLocators.surveyPaginationDrpDwn;
         UserActions.waitForElementVisible(locator);
+        UserActions.performPagination(nextPg,previousPg,lastPg,firstPg);
         UserActions.wait_Sec();UserActions.wait_Sec();
         List<WebElement> webele = UserActions.getListOfElements(locator);
+        System.out.println("Before eMail Template Pagination function Call=>"+webele.size());
         if(webele.size()>1) {
             UserActions.getDropDownSelectIndex(locator, 2);
         }
@@ -96,7 +98,7 @@ public class SurveytoCampaignPage {
             UserActions.click(SurveyCampaignLocators.surveyFormCloseBtn);
             By frameId = By.id("xamplify-bee-template-container__bee-plugin-frame");
             UserActions.handlingeMailTemplateiFrame(frameId,SurveyCampaignLocators.saveTemplate,SurveyCampaignLocators.closeTemplate);
-            UserActions.closeSearch(SurveyCampaignLocators.searchClearButton);
+//            UserActions.closeSearch(SurveyCampaignLocators.searchClearButton);
         }
         UserActions.click(SurveyCampaignLocators.sendTesteMailButton);
         String eMailId = userInputProperties.getProperty("mailIDforVideoCamp");
@@ -111,16 +113,18 @@ public class SurveytoCampaignPage {
 
     public static void performPaginationOnGroupOfPartner() {
         By nextPg = SurveyCampaignLocators.partnerGroupNext;
-        By firstPg = SurveyCampaignLocators.partnerGroupPrevious;
+        By firstPg = SurveyCampaignLocators.partnerGroupFirst;
         By lastPg = SurveyCampaignLocators.partnerGroupLast;
-        By previousPg = SurveyCampaignLocators.partnerGroupFirst;
-        UserActions.performPagination(nextPg,previousPg,lastPg,firstPg);
+        By previousPg = SurveyCampaignLocators.partnerGroupPrevious;
         By locator = SurveyCampaignLocators.partnerPaginationDrpDwn;
         UserActions.waitForElementVisible(locator);
-        UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.performPagination(nextPg,previousPg,lastPg,firstPg);
         List<WebElement> webele = UserActions.getListOfElements(locator);
+        System.out.println("Before Partner Pagination function Call=>"+webele.size());
         if(webele.size()>1) {
+            UserActions.wait_Sec();//UserActions.wait_Sec();
             UserActions.getDropDownSelectIndex(locator, 2);
+            System.out.println("After Pagination function Call");
         }
         // UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
     }
@@ -130,7 +134,7 @@ public class SurveytoCampaignPage {
         UserActions.waitForElementVisible(locator);
         UserActions.performSorting(locator);
         String searchKey = userInputProperties.getProperty("selectPartnerGroup");
-        UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();UserActions.wait_Sec();
+        UserActions.wait_Sec();UserActions.wait_Sec();//UserActions.wait_Sec();//UserActions.wait_Sec();
         if(searchKey!=null){
             UserActions.wait_Sec();
             UserActions.searchValue(SurveyCampaignLocators.searchPartnerGroup,SurveyCampaignLocators.searchPartnerGroupIcon,searchKey);
@@ -144,8 +148,8 @@ public class SurveytoCampaignPage {
         UserActions.click(SurveyCampaignLocators.selctpartnerGroupPreview);
         UserActions.wait_Sec();UserActions.wait_Sec();
         UserActions.click(SurveyCampaignLocators.closePartnerPreview);
-        UserActions.wait_Sec();UserActions.wait_Sec();
-        UserActions.closeSearch(SurveyCampaignLocators.cancelSearchPartnerGroup);
+//        UserActions.wait_Sec();UserActions.wait_Sec();
+//        UserActions.closeSearch(SurveyCampaignLocators.cancelSearchPartnerGroup);
     }
 
     public static void sendATestMailBeforeLaunchSurveyTocampaign() {
