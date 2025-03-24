@@ -12,14 +12,15 @@ import org.junit.runner.RunWith;
                 "src\\Feature\\SurveyCampaign.feature",
                 "src\\Feature\\VideoToCampaign.feature",
                 "src\\Feature\\EmailToCampaign.feature",
-               // "src\\Feature\\Opportunities.feature",
+                "src\\Feature\\Opportunities.feature",
         },
-       // features = "src\\Feature\\",
+        // features = "src\\Feature\\",
         glue = {"stepDefinition", "base"},
         monochrome = true,
 
         plugin = {"html:target/Latest_Result_Report/Application_UI.html","pretty",
-        "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
+                "timeline:target/Latest_Result_Report"},
         dryRun = false
         //tags = "@test",
         //tags = "@Test_OpportunitiesManageLeads"
