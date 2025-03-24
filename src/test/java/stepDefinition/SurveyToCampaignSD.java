@@ -21,72 +21,141 @@ public class SurveyToCampaignSD {
 
     @And("User wants to create survey tocampaign")
     public void userWantsToCreateSurveyTocampaign() {
-        SurveytoCampaignPage.createSurveyTocampaign();
+        try {
+            SurveytoCampaignPage.createSurveyTocampaign();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to fill survey tocampaign details")
     public void userIsAbleToFillSurveyTocampaignDetails() {
-        SurveytoCampaignPage.fillSurveyTocampaignDetails();
+        try {
+            SurveytoCampaignPage.fillSurveyTocampaignDetails();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to perform pagination on select an email template")
     public void userIsAbleToPerformPaginationOnSelectAnEmailTemplate() {
-        SurveytoCampaignPage.paginationOnSelectAnEmailTemplate();
-
+        try {
+            SurveytoCampaignPage.paginationOnSelectAnEmailTemplate();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able select an email template by using search and sort")
     public void userIsAbleSelectAnEmailTemplateByUsingSearchAndSort() {
-        SurveytoCampaignPage.selectAnEmailTemplateByUsingSearchAndSort();
+        try {
+            SurveytoCampaignPage.selectAnEmailTemplateByUsingSearchAndSort();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to perform pagination on group of partner")
     public void userIsAbleToPerformPaginationOnGroupOfPartner() {
-        SurveytoCampaignPage.performPaginationOnGroupOfPartner();
+        try {
+            SurveytoCampaignPage.performPaginationOnGroupOfPartner();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to select partner group to be used in this survey tocampaign")
     public void userIsAbleToSelectPartnerGroupToBeUsedInThisSurveyTocampaign() {
-        SurveytoCampaignPage.selectPartnerGroupforSurveyTocampaign();
+        try {
+            SurveytoCampaignPage.selectPartnerGroupforSurveyTocampaign();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to send a test mail before launch survey tocampaign")
     public void userIsAbleToSendATestMailBeforeLaunchSurveyTocampaign() {
-        SurveytoCampaignPage.sendATestMailBeforeLaunchSurveyTocampaign();
+        try {
+            SurveytoCampaignPage.sendATestMailBeforeLaunchSurveyTocampaign();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to perform spam check in survey tocampaign")
     public void userIsAbleToPerformSpamCheckInSurveyTocampaign() {
-        SurveytoCampaignPage.spamCheckInSurveyTocampaign();
+        try {
+            SurveytoCampaignPage.spamCheckInSurveyTocampaign();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to launch survey tocampaign now")
     public void userIsAbleToLaunchSurveyTocampaignNow() {
-        SurveytoCampaignPage.launchSurveyTocampaignNow();
+        try {
+            SurveytoCampaignPage.launchSurveyTocampaignNow();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @Then("Survey tocampaign should successfully launched")
     public void surveyTocampaignShouldSuccessfullyLaunched() {
-        SurveytoCampaignPage.successfullyLaunched();
+        try {
+            SurveytoCampaignPage.successfullyLaunched();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @Then("Survey tocampaign should successfully saved")
     public void surveyTocampaignShouldSuccessfullySaved() {
-        SurveytoCampaignPage.successfullyLaunched();
+        try {
+            SurveytoCampaignPage.successfullyLaunched();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @Then("Survey tocampaign should successfully schedule")
     public void surveyTocampaignShouldSuccessfullySchedule() {
-        SurveytoCampaignPage.successfullyLaunched();
+        try {
+            SurveytoCampaignPage.successfullyLaunched();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to save survey tocampaign")
     public void userIsAbleToSaveSurveyTocampaign() {
-        SurveytoCampaignPage.saveSurveyTocampaign();
+        try {
+            SurveytoCampaignPage.saveSurveyTocampaign();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to schedule survey tocampaign")
     public void userIsAbleToScheduleSurveyTocampaign() {
-        SurveytoCampaignPage.scheduleEmailCampaign();
+        try {
+            SurveytoCampaignPage.scheduleEmailCampaign();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 }

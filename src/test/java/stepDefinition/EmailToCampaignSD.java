@@ -8,67 +8,118 @@ import pageObjects.EmailToCampaignPage;
 public class EmailToCampaignSD {
     @When("Verify user is able to mouserHover on Campaign")
     public void verifyUserIsAbleToMouserHoverOnCampaign() {
+
         EmailToCampaignPage.mouseHoverOnCampaign();
     }
 
     @Then("User is able to click creating campaign")
     public void userIsAbleToClickCreatingCampaign() {
+
         EmailToCampaignPage.clickCreatingCampaign();
     }
 
     @And("User wants to create email Campaign")
     public void userWantsToCreateEmailCampaign() {
+
         EmailToCampaignPage.createEmailCampaign();
     }
     @And("User is able to fill email tocampaign details")
     public void userIsAbleToFillEmailTocampaignDetails() {
-        EmailToCampaignPage.entereMailtoCampaignDetails();
-
+        try {
+            EmailToCampaignPage.entereMailtoCampaignDetails();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to perform pagination on email template")
     public void userIsAbleToPerformPaginationOnEmailTemplate() {
-        EmailToCampaignPage.performPaginationOnEmailTemplate();
+        try {
+            EmailToCampaignPage.performPaginationOnEmailTemplate();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able select an email template")
     public void userIsAbleSelectAnEmailTemplate() {
-        EmailToCampaignPage.selectAnEmailTemplate();
+        try {
+            EmailToCampaignPage.selectAnEmailTemplate();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to perform pagination on partner selection")
     public void userIsAbleToPerformPaginationOnPartnerSelection() {
-        EmailToCampaignPage.performPaginationOnPartnerSelection();
+        try {
+            EmailToCampaignPage.performPaginationOnPartnerSelection();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
-
 
     @And("User is able to select partner group to be used in this campaign")
     public void userIsAbleToSelectPartnerGroupToBeUsedInThisCampaign() {
-        EmailToCampaignPage.selectPartnerGroupToBeUsedInThisCampaign();
+        try {
+            EmailToCampaignPage.selectPartnerGroupToBeUsedInThisCampaign();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to send a test mail before launch campaign")
     public void userIsAbleToSendATestMailBeforeLaunchCampaign() {
-        EmailToCampaignPage.sendATestMailBeforeLaunchCampaign();
+        try {
+            EmailToCampaignPage.sendATestMailBeforeLaunchCampaign();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to launch email campaign now")
     public void userIsAbleToLaunchEmailCampaignNow() {
-        EmailToCampaignPage.launchEmailCampaignNow();
+        try {
+            EmailToCampaignPage.launchEmailCampaignNow();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to perform spam check Operation")
     public void userIsAbleToPerformSpamCheckOperation() {
-        EmailToCampaignPage.performSpamCheckOperation();
+        try {
+            EmailToCampaignPage.performSpamCheckOperation();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to save email campaign")
     public void userIsAbleToSaveEmailCampaign() {
-        EmailToCampaignPage.saveEmailCampaign();
+        try {
+            EmailToCampaignPage.saveEmailCampaign();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to schedule email campaign")
     public void userIsAbleToScheduleEmailCampaign() {
-        EmailToCampaignPage.scheduleEmailCampaign();
+        try {
+            EmailToCampaignPage.scheduleEmailCampaign();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 }

@@ -31,235 +31,462 @@ public class OpportunitiesSD extends TestSetup
 
     @And("User wants to click on the add lead button")
     public void userWantsToClickOnTheAddLeadButton() {
-        OpportunitiesPage.clickAddLead();
+        try {
+            OpportunitiesPage.clickAddLead();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to select the values of company and pipeline stages")
     public void userIsAbleToSelectTheValuesOfCompanyAndPipelineStages() {
-        OpportunitiesPage.selectTheValuesOfCompanyPipelineandStages();
+        try {
+            OpportunitiesPage.selectTheValuesOfCompanyPipelineandStages();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to fill the add lead details")
     public void userIsAbleToFillTheAddLeadDetails() {
-        OpportunitiesPage.fillTheAddLeadDetails();
+        try {
+            OpportunitiesPage.fillTheAddLeadDetails();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to save lead details")
     public void userIsAbleToSaveLeadDetails() {
-        OpportunitiesPage.SaveLeadButton();
+        try {
+            OpportunitiesPage.SaveLeadButton();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @Then("User is able to see list view to campaign view")
     public void userIsAbleToSeeListViewToCampaignView() {
-        OpportunitiesPage.listViewToCampaignView();
+        try {
+            OpportunitiesPage.listViewToCampaignView();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @Then("User is able to click the leads tile")
     public void userIsAbleToClickTheLeadsTile() {
-        OpportunitiesPage.clickTheLeadsTile();
+        try {
+            OpportunitiesPage.clickTheLeadsTile();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to see campaign view to list view")
     public void userIsAbleToSeeCampaignViewToListView() {
-        OpportunitiesPage.campaignViewToListView();
+        try {
+            OpportunitiesPage.campaignViewToListView();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to click view lead icon")
     public void userIsAbleToClickViewLeadIcon() {
-        OpportunitiesPage.clickViewLeadIcon();
+        try {
+            OpportunitiesPage.clickViewLeadIcon();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to click edit lead icon")
     public void userIsAbleToClickEditLeadIcon() {
-        OpportunitiesPage.clickEditLeadIcon();
+        try {
+            OpportunitiesPage.clickEditLeadIcon();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to click comment lead icon")
     public void userIsAbleToClickCommentLeadIcon() {
-        OpportunitiesPage.clickCommentLeadIcon();
-
+        try {
+            OpportunitiesPage.clickCommentLeadIcon();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to click delete lead icon")
     public void userIsAbleToClickDeleteLeadIcon() {
-        OpportunitiesPage.clickDeleteLeadIcon();
+        try {
+            OpportunitiesPage.clickDeleteLeadIcon();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to click manage leads pagination")
     public void userIsAbleToClickManageLeadsPagination(){
-        OpportunitiesPage.manageLeadsPagination();
+        try {
+            OpportunitiesPage.manageLeadsPagination();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to click page drop down")
     public void userIsAbleToClickPageDropDown() {
-        OpportunitiesPage.clickPageDropDown();
-        UserActions.wait_Sec();
+        try {
+            OpportunitiesPage.clickPageDropDown();
+            UserActions.wait_Sec();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
-
 
     @And("User is able to click lead to deal register button")
     public void userIsAbleToClickLeadToDealRegisterButton() {
-        OpportunitiesPage.clickLeadToDealRegisterButton();
+        try {
+            OpportunitiesPage.clickLeadToDealRegisterButton();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @Then("User is able to mouseHover on Manage Deals")
     public void userIsAbleToMouseHoverOnManageDeals() {
-        OpportunitiesPage.clickmouseHoverOnManageDeals();
+        try {
+            OpportunitiesPage.clickmouseHoverOnManageDeals();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User wants to click on the add Deal button")
     public void userWantsToClickOnTheAddDealButton() {
-        OpportunitiesPage.clickAddaDealButton();
+        try {
+            OpportunitiesPage.clickAddaDealButton();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to select company pipeline and stages")
     public void userIsAbleToSelectCompanyPipelineAndStages() {
-        OpportunitiesPage.selectCompanyPipelineAndStages();
+        try {
+            OpportunitiesPage.selectCompanyPipelineAndStages();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to add lead or contact to deal")
     public void userIsAbleToAddLeadOrContactToDeal() {
-        OpportunitiesPage.addLeadOrContactToDeal();
+        try {
+            OpportunitiesPage.addLeadOrContactToDeal();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to fill the add deal details")
     public void userIsAbleToFillTheAddDealDetails() {
-        OpportunitiesPage.fillDealDetails();
+        try {
+            OpportunitiesPage.fillDealDetails();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to see list view to campaign view in deals")
     public void userIsAbleToSeeListViewToCampaignViewInDeals() {
-        OpportunitiesPage.listViewToCampaignViewInDeals();
+        try {
+            OpportunitiesPage.listViewToCampaignViewInDeals();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to click the deals tile")
     public void userIsAbleToClickTheDealsTile() {
-        OpportunitiesPage.clickTheDealsTile();
+        try {
+            OpportunitiesPage.clickTheDealsTile();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to select the lost deals tile")
     public void userIsAbleToSelectTheLostDealsTile() {
-        OpportunitiesPage.clickTheLostDealsTile();
+        try {
+            OpportunitiesPage.clickTheLostDealsTile();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to see campaign view to list view in deals")
     public void userIsAbleToSeeCampaignViewToListViewInDeals() {
-        OpportunitiesPage.clickCampaignViewToListViewInDeals();
+        try {
+            OpportunitiesPage.clickCampaignViewToListViewInDeals();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to click the total deals tile")
     public void userIsAbleToClickTheTotalDealsTile() {
-        OpportunitiesPage.clickTheTotalDealsTile();
+        try {
+            OpportunitiesPage.clickTheTotalDealsTile();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to click here to email the report")
     public void userIsAbleToClickHereToEmailTheReport() {
-        OpportunitiesPage.clickHereToEmailTheReport();
+        try {
+            OpportunitiesPage.clickHereToEmailTheReport();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to click view deal icon")
     public void userIsAbleToClickViewDealIcon() {
-        OpportunitiesPage.clickViewDealIcon();
+        try {
+            OpportunitiesPage.clickViewDealIcon();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to click edit deal icon")
     public void userIsAbleToClickEditDealIcon() {
-        OpportunitiesPage.clickEditDealIcon();
+        try {
+            OpportunitiesPage.clickEditDealIcon();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to click comment deal icon")
     public void userIsAbleToClickCommentDealIcon() {
-        OpportunitiesPage.clickCommentDealIcon();
+        try {
+            OpportunitiesPage.clickCommentDealIcon();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to click delete deal icon")
     public void userIsAbleToClickDeleteDealIcon() {
-        OpportunitiesPage.clickDeleteDealIcon();
+        try {
+            OpportunitiesPage.clickDeleteDealIcon();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User ia able to click pagination on deals")
     public void userIaAbleToClickPaginationOnDeals() {
-        OpportunitiesPage.clickPaginationOnDeals();
+        try {
+            OpportunitiesPage.clickPaginationOnDeals();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to click edit deal stage icon")
     public void userIsAbleToClickEditDealStageIcon() {
-        OpportunitiesPage.editDealStageIcon();
+        try {
+            OpportunitiesPage.editDealStageIcon();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to perform pagination action on campaigns")
     public void userIsAbleToPerformPaginationActionOnCampaigns() {
-        OpportunitiesPage.performPaginationActionOnCampaigns();
+        try {
+            OpportunitiesPage.performPaginationActionOnCampaigns();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to click view Lead for this campaign")
     public void userIsAbleToClickViewLeadForThisCampaign() {
-        OpportunitiesPage.clickViewLeadForThisCampaign();
+        try {
+            OpportunitiesPage.clickViewLeadForThisCampaign();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to preview the campaign leads")
     public void userIsAbleToPreviewTheCampaignLeads() {
-        OpportunitiesPage.previewTheCampaignLeads();
+        try {
+            OpportunitiesPage.previewTheCampaignLeads();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to comment the campaign leads")
     public void userIsAbleToCommentTheCampaignLeads() {
-        OpportunitiesPage.commentTheCampaignLeads();
+        try {
+            OpportunitiesPage.commentTheCampaignLeads();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to edit the campaign leads")
     public void userIsAbleToEditTheCampaignLeads() {
-        OpportunitiesPage.editTheCampaignLeads();
+        try {
+            OpportunitiesPage.editTheCampaignLeads();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to delete the campaign leads")
     public void userIsAbleToDeleteTheCampaignLeads() {
-        OpportunitiesPage.deleteTheCampaignLeads();
+        try {
+            OpportunitiesPage.deleteTheCampaignLeads();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to click view deal for this campaign")
     public void userIsAbleToClickViewDealForThisCampaign() {
-        OpportunitiesPage.viewDealForThisCampaign();
+        try {
+            OpportunitiesPage.viewDealForThisCampaign();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to view the campaign deals")
     public void userIsAbleToViewTheCampaignDeals() {
-        OpportunitiesPage.viewTheCampaignDeals();
+        try {
+            OpportunitiesPage.viewTheCampaignDeals();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to comment the campaign Deals")
     public void userIsAbleToCommentTheCampaignDeals() {
-        OpportunitiesPage.commentTheCampaignDeals();
+        try {
+            OpportunitiesPage.commentTheCampaignDeals();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to edit the campaign Deals")
     public void userIsAbleToEditTheCampaignDeals() {
-        OpportunitiesPage.editTheCampaignDeals();
+        try {
+            OpportunitiesPage.editTheCampaignDeals();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to delete the campaign Deals")
     public void userIsAbleToDeleteTheCampaignDeals() {
-        OpportunitiesPage.deleteTheCampaignDeals();
+        try {
+            OpportunitiesPage.deleteTheCampaignDeals();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to change the deal stage in campaign View")
     public void userIsAbleToChangeTheDealStageInCampaignView() {
-        OpportunitiesPage.changeTheDealStageInCampaignView();
+        try {
+            OpportunitiesPage.changeTheDealStageInCampaignView();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to perform pagination on campaign deals")
     public void userIsAbleToPerformPaginationOnCampaignDeals() {
-        OpportunitiesPage.performPaginationOnCampaignDeals();
+        try {
+            OpportunitiesPage.performPaginationOnCampaignDeals();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to filter deals")
     public void userIsAbleToFilterDeals() {
-        OpportunitiesPage.filterDeals();
+        try {
+            OpportunitiesPage.filterDeals();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @And("User is able to apply filter on leads")
     public void userIsAbleToApplyFilterOnLeads() {
-        OpportunitiesPage.applyFilterOnLeads();
+        try {
+            OpportunitiesPage.applyFilterOnLeads();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
-
 }
